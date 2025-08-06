@@ -1,0 +1,17 @@
+{
+  "name": "Kids Café Social",
+  "short_name": "Kids Café",
+  "description": "Not Your Ordinary Playground - A modern kids café and play space",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#ff6b6b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiNmZjZiNmIiLz4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyQzEzLjEgMiAxNCAyLjkgMTQgNFYxMkgyMFYxNEMyMCAxNS4xIDE5LjEgMTYgMTggMTZIMTZWMjBIMThDMjAuMjEgMjAgMjIgMTguMjEgMjIgMTZWMTRIMjBWN0gyMFY0QzIwIDIuOSAxOS4xIDIgMTggMkgxMkMyLjkgMiAyIDIuOSAyIDRWMjBIMFYyMkgyQzMuMSAyMiA0IDIxLjEgNCAyMFY0QzQgMi45IDQuOSAyIDYgMkgxMloiLz4KPHBhdGggZD0iTTEyIDZDNi40OCA2IDIgMTAuNDggMiAxNlMyMC4xIDI2IDEyIDI2UzIgMjEuNTIgMiAxNlM2LjQ4IDYgMTIgNloiLz4KPC9zdmc+Cjwvc3ZnPgo=",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+} 

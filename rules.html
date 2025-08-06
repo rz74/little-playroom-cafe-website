@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules - Kids Café Social</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6b6b">
+    <style>
+        .rules-hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .rules-section {
+            padding: 4rem 0;
+        }
+        
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .rule-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .rule-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .rule-icon {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        
+        .rule-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .rule-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .important-notices {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .notice-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .notice-title {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .notice-content {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .safety-section {
+            padding: 4rem 0;
+        }
+        
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .safety-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .safety-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .safety-icon {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        
+        .safety-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .safety-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .faq-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 1.5rem;
+            color: #666;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .faq-toggle {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(180deg);
+        }
+        
+        .waiver-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            text-align: center;
+        }
+        
+        .waiver-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .waiver-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .waiver-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .waiver-btn {
+            background: white;
+            color: #ff6b6b;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .waiver-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>KIDS CAFÉ SOCIAL</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="decor.html">Party Decor</a></li>
+                <li><a href="packages.html">Party Packages</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="hours.html">Hours/Prices</a></li>
+                <li><a href="rules.html" class="active">Rules</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rules Hero -->
+    <section class="rules-hero">
+        <div class="hero-content">
+            <h1>Rules & Guidelines</h1>
+            <h3>— Ensuring a Safe & Fun Environment</h3>
+            <p>Please review our rules before your visit</p>
+        </div>
+    </section>
+
+    <!-- Main Rules -->
+    <section class="rules-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #333;">What You Need to Know</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3 class="rule-title">No Strollers</h3>
+                    <p class="rule-description">Strollers are not allowed in our café and play area. Please leave them in the designated area near the entrance.</p>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-socks"></i>
+                    </div>
+                    <h3 class="rule-title">Socks Required</h3>
+                    <p class="rule-description">Socks are required for everyone entering our café and playground area. Grip socks (from Kids Café) are required for all children playing.</p>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="rule-title">No Outside Food</h3>
+                    <p class="rule-description">No outside food and drinks allowed. No eating, snacking, or drinking on the play area. Please use our café for all food and beverages.</p>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="rule-title">No Birthday Celebrations</h3>
+                    <p class="rule-description">No birthday celebrations, gift exchanging, cake, cupcakes, or party items allowed during open play. For birthday parties, please book our private party packages.</p>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-thermometer"></i>
+                    </div>
+                    <h3 class="rule-title">Health Policy</h3>
+                    <p class="rule-description">We reserve the right to deny entry to anyone with fever or visible cold symptoms. If you are ill, please stay home and visit another time.</p>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="rule-title">Rule Compliance</h3>
+                    <p class="rule-description">We reserve the right to deny entry to anyone not following our rules and regulations. No refunds will be provided for rule violations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notices -->
+    <section class="important-notices">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #333;">Important Notices</h2>
+            <div class="notice-card">
+                <h3 class="notice-title">
+                    <i class="fas fa-file-signature"></i>
+                    Signed Waivers Required
+                </h3>
+                <p class="notice-content">All participants must have a signed waiver on file. Parents/guardians must sign for children under 18. Waivers can be completed online or in person.</p>
+            </div>
+            
+            <div class="notice-card">
+                <h3 class="notice-title">
+                    <i class="fas fa-child"></i>
+                    Supervision Required
+                </h3>
+                <p class="notice-content">Children must be supervised by an adult at all times. We are not responsible for unsupervised children. Please stay within the facility while your child is playing.</p>
+            </div>
+            
+            <div class="notice-card">
+                <h3 class="notice-title">
+                    <i class="fas fa-clock"></i>
+                    Time Limits
+                </h3>
+                <p class="notice-content">There are no time limits for regular play sessions. However, during peak hours, we may ask families to limit their stay to ensure all guests can enjoy our facility.</p>
+            </div>
+            
+            <div class="notice-card">
+                <h3 class="notice-title">
+                    <i class="fas fa-camera"></i>
+                    Photography Policy
+                </h3>
+                <p class="notice-content">Photography is allowed for personal use only. Please be respectful of other families and do not take photos of other children without permission.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Guidelines -->
+    <section class="safety-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #333;">Safety Guidelines</h2>
+            <div class="safety-grid">
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="safety-title">Safe Play</h3>
+                    <p class="safety-description">Our equipment is designed for children ages 0-12. Please ensure children use age-appropriate areas and equipment.</p>
+                </div>
+                
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3 class="safety-title">Gentle Play</h3>
+                    <p class="safety-description">Please encourage gentle play and respect for other children. Rough play, pushing, or aggressive behavior is not permitted.</p>
+                </div>
+                
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <h3 class="safety-title">Proper Footwear</h3>
+                    <p class="safety-description">Grip socks must be worn at all times in the play area. Regular socks are not sufficient for safety on our equipment.</p>
+                </div>
+                
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3 class="safety-title">Infant Areas</h3>
+                    <p class="safety-description">We have designated areas for infants and toddlers. Please keep older children out of these areas to ensure safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #333;">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Why are grip socks required?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Grip socks provide better traction and safety on our play equipment. They help prevent slips and falls while maintaining cleanliness in our facility.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I bring my own food for my child?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    No outside food is permitted. We have a full café menu with healthy options for children and adults. This policy helps maintain cleanliness and prevents allergies.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What if my child has allergies?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Please inform our staff of any allergies. We offer various dietary options, but we cannot guarantee a completely allergen-free environment.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I leave my child unattended?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    No, children must be supervised by an adult at all times. We are not a daycare facility and cannot be responsible for unsupervised children.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What happens if someone breaks the rules?
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    We will first give a friendly reminder. If rules continue to be broken, we may ask the family to leave. No refunds are provided for rule violations.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waiver Section -->
+    <section class="waiver-section">
+        <div class="container">
+            <div class="waiver-content">
+                <h2 class="waiver-title">Sign Your Waiver</h2>
+                <p class="waiver-description">All visitors must have a signed waiver on file. Complete your waiver online to save time at check-in!</p>
+                <button class="waiver-btn">Sign Waiver Online</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kids Café Social</h3>
+                    <p>Not Your Ordinary Playground</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="gallery.html">Photo Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>847-466-5585</p>
+                    <p>info@kidscafesocial.net</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 All rights reserved Kids Café Social | Designed with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const toggle = this.querySelector('.faq-toggle');
+                
+                // Close other open answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    if (ans !== answer) {
+                        ans.classList.remove('active');
+                        ans.previousElementSibling.querySelector('.faq-toggle').classList.remove('active');
+                    }
+                });
+                
+                // Toggle current answer
+                answer.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+
+        // Waiver button functionality
+        document.querySelector('.waiver-btn').addEventListener('click', function() {
+            showNotification('Waiver form will open in a new window. Please complete and submit.', 'info');
+            setTimeout(() => {
+                window.open('#', '_blank');
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
