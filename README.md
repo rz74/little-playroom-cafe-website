@@ -1,6 +1,6 @@
-# Kids Café Social Website
+# Little Playroom Café Website
 
-A modern, responsive website for a kids café and play space, inspired by the Playroom Café Social design. This website features a beautiful, interactive design with smooth animations and mobile-first responsive layout.
+A modern, responsive website for Little Playroom Café, a kids café and play space in Madison, WI. This website features a beautiful, interactive design with smooth animations and mobile-first responsive layout.
 
 ## 🎯 Features
 
