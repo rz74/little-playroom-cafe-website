@@ -21,18 +21,22 @@ body {
 /* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 1000;
     transition: all 0.3s ease;
+    padding: 0 40px;
+    overflow: hidden;
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,7 +84,7 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%,#4b5dac 25%, #602f91 50%, #764ba2 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +101,12 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     opacity: 0.3;
 }
 
@@ -111,13 +120,15 @@ body {
     font-weight: 300;
     margin-bottom: 1rem;
     opacity: 0.9;
+    color: #ebebeb;
 }
 
 .hero h1 {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
+    color: #ffffff;
 }
 
 .hero h3 {
@@ -125,28 +136,32 @@ body {
     font-weight: 400;
     margin-bottom: 2rem;
     opacity: 0.9;
+    color: #ffffff;
 }
 
 .hero p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    color: #f5f5ff;
 }
 
 .hero-image {
     position: absolute;
-    right: 0;
+    right: 70%;
     top: 0;
-    width: 50%;
+    width: 40%;
     height: 100%;
     overflow: hidden;
+    border-radius: 50px 400px 50px 100px;
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.4;
+    filter: brightness(0.8) contrast(1.1);
 }
 
 .cta-button {
@@ -986,166 +1001,6 @@ body {
     margin: 0 auto;
 }
 
-/* Partnership Page */
-.partnership-hero {
-    height: 60vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.partnership-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-}
-
-.partnership-hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-.partnership-hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.partnership-hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-.partnership-content {
-    padding: 4rem 0;
-    background: white;
-}
-
-.partnership-intro {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.partnership-intro h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
-.partnership-intro p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto 1rem;
-}
-
-.partnership-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
-}
-
-.partnership-section h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
-    text-align: center;
-}
-
-.benefits-list,
-.partner-qualifications {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.benefit-item,
-.qualification-item {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.benefit-item:hover,
-.qualification-item:hover {
-    transform: translateY(-5px);
-}
-
-.benefit-item i,
-.qualification-item i {
-    font-size: 2.5rem;
-    color: #ff6b6b;
-    margin-bottom: 1rem;
-}
-
-.benefit-item h4,
-.qualification-item h4 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.benefit-item p,
-.qualification-item p {
-    color: #666;
-    line-height: 1.6;
-}
-
-.partnership-cta {
-    text-align: center;
-    background: #f8f9fa;
-    padding: 3rem;
-    border-radius: 20px;
-}
-
-.partnership-cta h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.partnership-cta p {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-.contact-info-partnership {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.partnership-btn {
-    display: inline-block;
-    background: #ff6b6b;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.partnership-btn:hover {
-    background: #ff5252;
-    transform: translateY(-2px);
-}
-
 /* Waiver Page */
 .waiver-content {
     padding: 4rem 0;
@@ -1371,17 +1226,26 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        padding: 0 25px;
+        top: 15px;
+        border-radius: 0;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.75);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(20px);
+        border-radius: 0 0 20px 20px;
         padding: 2rem 0;
     }
 
@@ -1454,6 +1318,13 @@ body {
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        width: 100%;
+        padding: 0 20px;
+        top: 10px;
+        border-radius: 0;
+    }
+    
     .container {
         padding: 0 15px;
     }
@@ -1482,5 +1353,221 @@ body {
 
     .menu-buttons {
         flex-direction: column;
+    }
+}
+
+/* ===== FANCY SCROLL ANIMATIONS ===== */
+
+/* Base scroll animation styles */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Different animation types */
+.scroll-animate.fade-in-left {
+    transform: translateX(-50px);
+}
+
+.scroll-animate.fade-in-right {
+    transform: translateX(50px);
+}
+
+.scroll-animate.fade-in-up {
+    transform: translateY(50px);
+}
+
+.scroll-animate.fade-in-down {
+    transform: translateY(-50px);
+}
+
+.scroll-animate.scale-in {
+    transform: scale(0.8) translateY(30px);
+}
+
+.scroll-animate.rotate-in {
+    transform: rotate(-5deg) translateY(30px);
+}
+
+/* Staggered animations for lists */
+.scroll-animate.stagger-1 { animation-delay: 0.1s; }
+.scroll-animate.stagger-2 { animation-delay: 0.2s; }
+.scroll-animate.stagger-3 { animation-delay: 0.3s; }
+.scroll-animate.stagger-4 { animation-delay: 0.4s; }
+.scroll-animate.stagger-5 { animation-delay: 0.5s; }
+
+/* Special animations for different elements */
+.quick-nav-item.scroll-animate {
+    transform: translateY(50px) scale(0.9);
+}
+
+.quick-nav-item.scroll-animate.animate-in {
+    transform: translateY(0) scale(1);
+}
+
+.feature-item.scroll-animate {
+    transform: translateY(40px) rotateX(10deg);
+}
+
+.feature-item.scroll-animate.animate-in {
+    transform: translateY(0) rotateX(0);
+}
+
+.hero-image.scroll-animate {
+    transform: translateX(50px) scale(0.95);
+}
+
+.hero-image.scroll-animate.animate-in {
+    transform: translateX(0) scale(1);
+}
+
+.cta-button.scroll-animate {
+    transform: translateY(20px) scale(0.9);
+}
+
+.cta-button.scroll-animate.animate-in {
+    transform: translateY(0) scale(1);
+}
+
+/* Parallax effect for hero sections */
+.hero, .about-hero, .menu-hero, .party-hero, .contact-hero, .waiver-hero, .partnership-hero {
+    transition: transform 0.1s ease-out;
+}
+
+/* Smooth transitions for all animated elements */
+* {
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effects enhanced with animations */
+.quick-nav-item:hover,
+.feature-item:hover,
+.benefit-item:hover,
+.contact-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Loading animation for images */
+img {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+img.scroll-animate {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+img.scroll-animate.animate-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Text animation effects */
+h1.scroll-animate,
+h2.scroll-animate,
+h3.scroll-animate {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+h1.scroll-animate.animate-in,
+h2.scroll-animate.animate-in,
+h3.scroll-animate.animate-in {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Button animations */
+.cta-button,
+.read-more-btn,
+.book-now-btn,
+.submit-btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-button:hover,
+.read-more-btn:hover,
+.book-now-btn:hover,
+.submit-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Gallery item animations */
+.gallery-item.scroll-animate {
+    transform: scale(0.8) translateY(30px);
+    opacity: 0;
+}
+
+.gallery-item.scroll-animate.animate-in {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Form animations */
+.contact-form.scroll-animate,
+.waiver-form.scroll-animate {
+    transform: translateX(-30px);
+    opacity: 0;
+}
+
+.contact-form.scroll-animate.animate-in,
+.waiver-form.scroll-animate.animate-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Menu category animations */
+.menu-category.scroll-animate {
+    transform: translateY(30px) rotateY(5deg);
+    opacity: 0;
+}
+
+.menu-category.scroll-animate.animate-in {
+    transform: translateY(0) rotateY(0);
+    opacity: 1;
+}
+
+/* Party features staggered animation */
+.party-features .feature-item:nth-child(1) { animation-delay: 0.1s; }
+.party-features .feature-item:nth-child(2) { animation-delay: 0.2s; }
+.party-features .feature-item:nth-child(3) { animation-delay: 0.3s; }
+.party-features .feature-item:nth-child(4) { animation-delay: 0.4s; }
+.party-features .feature-item:nth-child(5) { animation-delay: 0.5s; }
+.party-features .feature-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Quick nav items staggered animation */
+.quick-nav-item:nth-child(1) { animation-delay: 0.1s; }
+.quick-nav-item:nth-child(2) { animation-delay: 0.2s; }
+.quick-nav-item:nth-child(3) { animation-delay: 0.3s; }
+.quick-nav-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+.scroll-animate {
+    will-change: transform, opacity;
+}
+
+/* Disable animations on reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate {
+        transition: none;
+        animation: none;
+    }
+    
+    .scroll-animate.animate-in {
+        opacity: 1;
+        transform: none;
     }
 } 

@@ -45,11 +45,104 @@ window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.15)';
+        navbar.style.transform = 'translateX(-50%) scale(0.98)';
     } else {
         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+        navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+        navbar.style.transform = 'translateX(-50%) scale(1)';
     }
+});
+
+// Fancy Scroll Animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+// Create Intersection Observer for scroll animations
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+        }
+    });
+}, observerOptions);
+
+// Observe elements for scroll animations
+function observeElements() {
+    // Animate sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.add('scroll-animate');
+        scrollObserver.observe(section);
+    });
+
+    // Animate cards and items
+    const cards = document.querySelectorAll('.quick-nav-item, .feature-item, .benefit-item, .qualification-item, .contact-item, .menu-category, .party-features .feature-item, .pricing-item, .slot-item');
+    cards.forEach((card, index) => {
+        card.classList.add('scroll-animate');
+        card.style.animationDelay = `${index * 0.1}s`;
+        scrollObserver.observe(card);
+    });
+
+    // Animate text elements
+    const textElements = document.querySelectorAll('h1, h2, h3, p, .about-text, .party-content, .contact-form, .waiver-form');
+    textElements.forEach((element, index) => {
+        element.classList.add('scroll-animate');
+        element.style.animationDelay = `${index * 0.05}s`;
+        scrollObserver.observe(element);
+    });
+
+    // Animate images
+    const images = document.querySelectorAll('img, .hero-image, .about-image, .gallery-item');
+    images.forEach((image, index) => {
+        image.classList.add('scroll-animate');
+        image.style.animationDelay = `${index * 0.1}s`;
+        scrollObserver.observe(image);
+    });
+
+    // Animate buttons
+    const buttons = document.querySelectorAll('.cta-button, .read-more-btn, .book-now-btn, .submit-btn, .menu-btn');
+    buttons.forEach((button, index) => {
+        button.classList.add('scroll-animate');
+        button.style.animationDelay = `${index * 0.1}s`;
+        scrollObserver.observe(button);
+    });
+}
+
+// Initialize scroll animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    observeElements();
+});
+
+// // Parallax effect for hero sections
+// function parallaxEffect() {
+//     const scrolled = window.pageYOffset;
+//     const parallaxElements = document.querySelectorAll('.hero, .about-hero, .menu-hero, .party-hero, .contact-hero, .waiver-hero');
+    
+//     parallaxElements.forEach(element => {
+//         const speed = 0.1;
+//         element.style.transform = `translateY(${scrolled * speed}px)`;
+//     });
+// }
+
+// Add parallax effect to scroll
+window.addEventListener('scroll', debounce(parallaxEffect, 10));
+
+// Staggered animation for lists
+function animateListItems() {
+    const lists = document.querySelectorAll('ul li, .menu-categories li, .party-features li');
+    lists.forEach((item, index) => {
+        item.classList.add('scroll-animate');
+        item.style.animationDelay = `${index * 0.1}s`;
+        scrollObserver.observe(item);
+    });
+}
+
+// Call staggered animation
+document.addEventListener('DOMContentLoaded', () => {
+    animateListItems();
 });
 
 // Form submission handling
@@ -192,15 +285,11 @@ document.querySelectorAll('.cta-button, .waiver-btn, .gift-card-btn').forEach(bu
     });
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
+// Enhanced Intersection Observer for animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
         }
