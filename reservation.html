@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations - Little Playroom Café</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Little Playroom Café</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="party.html">Party</a></li>
+                <li><a href="decor.html">Party Decoration</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="partnership.html">Partnership</a></li>
+                <li><a href="reservation.html" class="active">Reservations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="waiver.html">Waiver</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reservation Hero -->
+    <section class="hero reservation-hero">
+        <div class="hero-content">
+            <h1>Make a Reservation</h1>
+            <h3>Book Your 3-Hour Time Slot</h3>
+            <p>Reserve your space for play, parties, or events. All reservations require owner confirmation.</p>
+        </div>
+    </section>
+
+    <!-- Reservation Info -->
+    <section class="reservation-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>3-Hour Sessions</h3>
+                    <p>Each reservation is for a 3-hour time slot to ensure everyone has enough time to enjoy our facilities.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Owner Confirmation</h3>
+                    <p>All reservations are subject to owner confirmation during business hours. We'll contact you within 24 hours.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Limited Availability</h3>
+                    <p>Maximum 2 reservations per day to ensure quality experience for all guests.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-calendar-plus"></i>
+                    <h3>Advance Booking</h3>
+                    <p>Reservations must be made at least 2 weeks prior to your desired date.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form -->
+    <section class="reservation-form-section">
+        <div class="container">
+            <div class="reservation-content">
+                <div class="form-container">
+                    <h2>Book Your Reservation</h2>
+                    <p>Fill out the form below to request your reservation. We'll confirm availability and contact you within 24 hours.</p>
+                    
+                    <form id="reservationForm" class="reservation-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resName">Full Name *</label>
+                                <input type="text" id="resName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="resEmail">Email Address *</label>
+                                <input type="email" id="resEmail" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resPhone">Phone Number *</label>
+                                <input type="tel" id="resPhone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="resGuests">Number of Guests *</label>
+                                <input type="number" id="resGuests" name="guests" min="1" max="50" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resDate">Preferred Date *</label>
+                                <input type="date" id="resDate" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="resTime">Preferred Time *</label>
+                                <select id="resTime" name="time" required>
+                                    <option value="">Select time slot</option>
+                                    <option value="10:00-13:00">10:00 AM - 1:00 PM</option>
+                                    <option value="14:00-17:00">2:00 PM - 5:00 PM</option>
+                                    <option value="18:00-21:00">6:00 PM - 9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resType">Reservation Type *</label>
+                            <select id="resType" name="type" required>
+                                <option value="">Select type</option>
+                                <option value="play">General Play</option>
+                                <option value="party">Birthday Party</option>
+                                <option value="event">Special Event</option>
+                                <option value="group">Group Visit</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resNotes">Special Requests</label>
+                            <textarea id="resNotes" name="notes" rows="4" placeholder="Any special requests or additional information..."></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" name="agreement" required>
+                                I understand that this is a reservation request and will be confirmed by the owner within 24 hours during business hours.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit Reservation Request</button>
+                    </form>
+                </div>
+                
+                <div class="calendar-container">
+                    <h3>Availability Calendar</h3>
+                    <div class="calendar" id="calendar">
+                        <!-- Calendar will be generated by JavaScript -->
+                    </div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-color available"></span>
+                            <span>Available</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color booked"></span>
+                            <span>Booked</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color unavailable"></span>
+                            <span>Unavailable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours -->
+    <section class="business-hours">
+        <div class="container">
+            <h2>Business Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-item">
+                    <h3>Monday - Friday</h3>
+                    <p>9:00 AM - 8:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h3>Saturday</h3>
+                    <p>9:00 AM - 8:00 PM</p>
+                </div>
+                <div class="hours-item">
+                    <h3>Sunday</h3>
+                    <p>10:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <p class="hours-note">* Reservations are confirmed during business hours only</p>
+        </div>
+    </section>
+
+    <!-- Contact for Questions -->
+    <section class="reservation-contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Questions About Reservations?</h2>
+                <p>If you have any questions about our reservation process or need assistance, please don't hesitate to contact us.</p>
+                <div class="contact-buttons">
+                    <a href="contact.html" class="contact-btn">Contact Us</a>
+                    <a href="tel:608-345-9528" class="phone-btn">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Little Playroom Café</h3>
+                    <p>7956 Tree Lane<br>Madison, WI 53717</p>
+                    <p>Phone: 608-345-9528</p>
+                    <p>Email: Playroommadison@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="party.html">Party</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/littleplayroom_cafe/profilecard/?igsh=MXhhZnFldG4zZ2du" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@littleplayroomcafe?_t=ZP-8ydQzYplgul&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Little Playroom Café. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
