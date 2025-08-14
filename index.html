@@ -14,9 +14,9 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-                            <div class="nav-logo">
-                    <h2>LITTLE PLAYROOM CAFÉ</h2>
-                </div>
+            <div class="nav-logo">
+                <img src="images/logo.svg" alt="Little Playroom Café Logo" class="logo-img">
+            </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -48,7 +48,7 @@
             <button class="cta-button" onclick="scrollToSection('quick-nav')">Explore Now</button>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=900" alt="Kids playing in café">
+            <img data-alias="hero-main" alt="Kids playing in café">
         </div>
     </section>
 
@@ -101,7 +101,7 @@
                     <a href="about.html" class="read-more-btn">Learn More</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&h=400&fit=crop" alt="Café interior">
+                    <img data-alias="cafe-interior-preview" alt="Café interior">
                 </div>
             </div>
         </div>
@@ -113,25 +113,25 @@
             <h2>Take a Look Around</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" alt="Playground area">
+                    <img data-alias="playground-preview" alt="Playground area">
                     <div class="gallery-overlay">
                         <h3>Playground</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=300&h=200&fit=crop" alt="Party area">
+                    <img data-alias="party-preview" alt="Party area">
                     <div class="gallery-overlay">
                         <h3>Party Zone</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=300&h=200&fit=crop" alt="Café area">
+                    <img data-alias="cafe-preview" alt="Café area">
                     <div class="gallery-overlay">
                         <h3>Café</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" alt="Learning area">
+                    <img data-alias="learning-preview" alt="Learning area">
                     <div class="gallery-overlay">
                         <h3>Learning Zone</h3>
                     </div>
@@ -148,7 +148,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Little Playroom Café</h3>
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Little Playroom Café Logo" class="footer-logo-img">
+                        <h3>Little Playroom Café</h3>
+                    </div>
                     <p>Not Your Ordinary Playground</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
@@ -183,6 +186,7 @@
         </div>
     </footer>
 
+    <script src="image-aliases.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

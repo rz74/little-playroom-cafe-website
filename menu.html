@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Little Playroom Café</title>
-    <meta name="description" content="View our delicious menu featuring coffee, snacks, and kid-friendly options at Little Playroom Café in Madison, WI.">
+    <title>Menu - Little Playroom CafÃ©</title>
+    <meta name="description" content="View our delicious menu featuring coffee, snacks, and kid-friendly options at Little Playroom CafÃ© in Madison, WI.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,12 +15,13 @@
     <nav class="navbar">
         <div class="nav-container">
                             <div class="nav-logo">
-                    <h2>LITTLE PLAYROOM CAFÉ</h2>
+                    <img src="images/logo.svg" alt="Little Playroom CafÃ© Logo" class="logo-img">
+                    
                 </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="menu.html" class="active" class="active">Menu</a></li>
                 <li><a href="party.html">Party</a></li>
                 <li><a href="decor.html">Party Decoration</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
@@ -114,7 +115,7 @@
                 <h3>Full Menu</h3>
                 <div class="menu-embed">
                     <!-- You can replace this with an actual PDF embed or menu image -->
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=1000&fit=crop" alt="Menu" class="menu-image">
+                    <img data-alias="menu-display" alt="Menu" class="menu-image">
                     <div class="menu-overlay">
                         <p>Click to view full menu</p>
                         <button class="view-menu-btn">View Full Menu</button>
@@ -129,7 +130,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Little Playroom Café</h3>
+                    <h3>Little Playroom CafÃ©</h3>
                     <p>Not Your Ordinary Playground</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
@@ -141,7 +142,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="menu.html" class="active">Menu</a></li>
                         <li><a href="party.html">Birthday Party</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -159,11 +160,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Little Playroom Café. All rights reserved.</p>
+                <p>&copy; 2024 Little Playroom CafÃ©. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    `n    <script src="image-aliases.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
+
+

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Little Playroom Café</title>
+    <title>Gallery - Little Playroom CafÃ©</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,7 +14,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>Little Playroom Café</h2>
+                <img src="images/logo.svg" alt="Little Playroom CafÃ© Logo" class="logo-img">
+                
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -22,7 +23,7 @@
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="party.html">Party</a></li>
                 <li><a href="decor.html">Party Decoration</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="gallery.html" class="active" class="active">Gallery</a></li>
                 <li><a href="rules.html">Rules</a></li>
                 <li><a href="partnership.html">Partnership</a></li>
                 <li><a href="reservation.html">Reservations</a></li>
@@ -42,7 +43,7 @@
         <div class="hero-content">
             <h1>Photo Gallery</h1>
             <h3>Take a Look Around Our Space</h3>
-            <p>Explore our play areas, party spaces, and café through these photos</p>
+            <p>Explore our play areas, party spaces, and cafÃ© through these photos</p>
         </div>
     </section>
 
@@ -53,7 +54,7 @@
                 <button class="filter-btn active" data-filter="all">All Photos</button>
                 <button class="filter-btn" data-filter="playground">Playground</button>
                 <button class="filter-btn" data-filter="party">Party Areas</button>
-                <button class="filter-btn" data-filter="cafe">Café</button>
+                <button class="filter-btn" data-filter="cafe">CafÃ©</button>
                 <button class="filter-btn" data-filter="events">Events</button>
             </div>
         </div>
@@ -65,7 +66,7 @@
             <div class="gallery-grid">
                 <!-- Playground Photos -->
                 <div class="gallery-item" data-category="playground">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="Main playground area">
+                    <img data-alias="playground-main" alt="Main playground area">
                     <div class="gallery-overlay">
                         <h3>Main Playground</h3>
                         <p>Our spacious indoor playground with climbing structures</p>
@@ -74,7 +75,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="playground">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop" alt="Kids playing">
+                    <img data-alias="kids-playing" alt="Kids playing">
                     <div class="gallery-overlay">
                         <h3>Active Play Zone</h3>
                         <p>Children enjoying our interactive play equipment</p>
@@ -83,7 +84,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="playground">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Toddler area">
+                    <img data-alias="toddler-area" alt="Toddler area">
                     <div class="gallery-overlay">
                         <h3>Toddler Area</h3>
                         <p>Safe play space designed for our youngest guests</p>
@@ -93,7 +94,7 @@
 
                 <!-- Party Area Photos -->
                 <div class="gallery-item" data-category="party">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop" alt="Party room">
+                    <img data-alias="party-room" alt="Party room">
                     <div class="gallery-overlay">
                         <h3>Party Room</h3>
                         <p>Dedicated space for birthday celebrations</p>
@@ -102,7 +103,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="party">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&h=300&fit=crop" alt="Decorated party">
+                    <img data-alias="decorated-party" alt="Decorated party">
                     <div class="gallery-overlay">
                         <h3>Party Setup</h3>
                         <p>Beautifully decorated party spaces</p>
@@ -111,7 +112,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="party">
-                    <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=300&fit=crop" alt="Birthday celebration">
+                    <img data-alias="birthday-celebration" alt="Birthday celebration">
                     <div class="gallery-overlay">
                         <h3>Birthday Celebrations</h3>
                         <p>Memorable moments from our parties</p>
@@ -119,18 +120,18 @@
                     </div>
                 </div>
 
-                <!-- Café Photos -->
+                <!-- CafÃ© Photos -->
                 <div class="gallery-item" data-category="cafe">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop" alt="Café seating">
+                    <img data-alias="cafe-seating" alt="CafÃ© seating">
                     <div class="gallery-overlay">
-                        <h3>Café Lounge</h3>
+                        <h3>CafÃ© Lounge</h3>
                         <p>Comfortable seating area for parents</p>
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="cafe">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Food and drinks">
+                    <img data-alias="food-drinks" alt="Food and drinks">
                     <div class="gallery-overlay">
                         <h3>Food & Beverages</h3>
                         <p>Delicious treats and drinks for everyone</p>
@@ -139,7 +140,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="cafe">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="Dining area">
+                    <img data-alias="dining-area" alt="Dining area">
                     <div class="gallery-overlay">
                         <h3>Dining Area</h3>
                         <p>Family-friendly dining space</p>
@@ -149,7 +150,7 @@
 
                 <!-- Event Photos -->
                 <div class="gallery-item" data-category="events">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop" alt="Special events">
+                    <img data-alias="special-events" alt="Special events">
                     <div class="gallery-overlay">
                         <h3>Special Events</h3>
                         <p>Holiday celebrations and themed events</p>
@@ -158,7 +159,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="events">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&h=300&fit=crop" alt="Group activities">
+                    <img data-alias="group-activities" alt="Group activities">
                     <div class="gallery-overlay">
                         <h3>Group Activities</h3>
                         <p>Organized activities and play sessions</p>
@@ -167,7 +168,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="events">
-                    <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=300&fit=crop" alt="Community events">
+                    <img data-alias="community-events" alt="Community events">
                     <div class="gallery-overlay">
                         <h3>Community Events</h3>
                         <p>Bringing families together</p>
@@ -196,7 +197,7 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Visit?</h2>
-                <p>See our space in person and experience the magic of Little Playroom Café</p>
+                <p>See our space in person and experience the magic of Little Playroom CafÃ©</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="cta-btn">Contact Us</a>
                     <a href="party.html" class="cta-btn secondary">Book a Party</a>
@@ -210,7 +211,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Little Playroom Café</h3>
+                    <h3>Little Playroom CafÃ©</h3>
                     <p>7956 Tree Lane<br>Madison, WI 53717</p>
                     <p>Phone: 608-345-9528</p>
                     <p>Email: Playroommadison@gmail.com</p>
@@ -234,11 +235,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Little Playroom Café. All rights reserved.</p>
+                <p>&copy; 2024 Little Playroom CafÃ©. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    `n    <script src="image-aliases.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
+
+
