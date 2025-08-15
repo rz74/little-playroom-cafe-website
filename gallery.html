@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Little Playroom CafÃ©</title>
+    <title>Gallery - Little Playroom Café</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -23,7 +23,7 @@
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="party.html">Party</a></li>
                 <li><a href="decor.html">Party Decoration</a></li>
-                <li><a href="gallery.html" class="active" class="active" class="active">Gallery</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
                 <li><a href="rules.html">Rules</a></li>
                 <li><a href="partnership.html">Partnership</a></li>
                 <li><a href="reservation.html">Reservations</a></li>
@@ -43,20 +43,7 @@
         <div class="hero-content">
             <h1>Photo Gallery</h1>
             <h3>Take a Look Around Our Space</h3>
-            <p>Explore our play areas, party spaces, and cafÃ© through these photos</p>
-        </div>
-    </section>
-
-    <!-- Gallery Filter -->
-    <section class="gallery-filter">
-        <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Photos</button>
-                <button class="filter-btn" data-filter="playground">Playground</button>
-                <button class="filter-btn" data-filter="party">Party Areas</button>
-                <button class="filter-btn" data-filter="cafe">Café</button>
-                <button class="filter-btn" data-filter="events">Events</button>
-            </div>
+            <p>Explore our play areas, party spaces, and café through these photos</p>
         </div>
     </section>
 
@@ -120,11 +107,20 @@
                     </div>
                 </div>
 
-                <!-- CafÃ© Photos -->
-                <div class="gallery-item" data-category="cafe">
-                    <img data-alias="cafe-seating" alt="CafÃ© seating">
+                <div class="gallery-item" data-category="party">
+                    <img data-alias="party-area" alt="Party area">
                     <div class="gallery-overlay">
-                        <h3>CafÃ© Lounge</h3>
+                        <h3>Party Area</h3>
+                        <p>Spacious party zones for celebrations</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <!-- Café Photos -->
+                <div class="gallery-item" data-category="cafe">
+                    <img data-alias="cafe-seating" alt="Café seating">
+                    <div class="gallery-overlay">
+                        <h3>Café Lounge</h3>
                         <p>Comfortable seating area for parents</p>
                         <i class="fas fa-expand"></i>
                     </div>
@@ -144,6 +140,15 @@
                     <div class="gallery-overlay">
                         <h3>Dining Area</h3>
                         <p>Family-friendly dining space</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cafe">
+                    <img data-alias="menu-display" alt="Menu display">
+                    <div class="gallery-overlay">
+                        <h3>Menu Display</h3>
+                        <p>Our delicious food and beverage options</p>
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
@@ -175,6 +180,287 @@
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
+
+                <!-- Decoration Photos -->
+                <div class="gallery-item" data-category="decorations">
+                    <img data-alias="princess-theme" alt="Princess theme decorations">
+                    <div class="gallery-overlay">
+                        <h3>Princess Theme</h3>
+                        <p>Magical princess-themed decorations</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="decorations">
+                    <img data-alias="superhero-theme" alt="Superhero theme decorations">
+                    <div class="gallery-overlay">
+                        <h3>Superhero Theme</h3>
+                        <p>Action-packed superhero decorations</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="decorations">
+                    <img data-alias="jungle-safari" alt="Jungle safari decorations">
+                    <div class="gallery-overlay">
+                        <h3>Jungle Safari</h3>
+                        <p>Wild jungle safari themed decorations</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="decorations">
+                    <img data-alias="custom-theme" alt="Custom theme decorations">
+                    <div class="gallery-overlay">
+                        <h3>Custom Themes</h3>
+                        <p>Personalized decoration themes</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <!-- Additional Gallery Photos -->
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-1" alt="Gallery photo 1">
+                    <div class="gallery-overlay">
+                        <h3>Play Area</h3>
+                        <p>Children's play space</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-2" alt="Gallery photo 2">
+                    <div class="gallery-overlay">
+                        <h3>Climbing Structures</h3>
+                        <p>Fun climbing equipment</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-3" alt="Gallery photo 3">
+                    <div class="gallery-overlay">
+                        <h3>Interactive Play</h3>
+                        <p>Engaging play activities</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-4" alt="Gallery photo 4">
+                    <div class="gallery-overlay">
+                        <h3>Play Equipment</h3>
+                        <p>Quality play structures</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-5" alt="Gallery photo 5">
+                    <div class="gallery-overlay">
+                        <h3>Safe Play Zone</h3>
+                        <p>Secure play environment</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-6" alt="Gallery photo 6">
+                    <div class="gallery-overlay">
+                        <h3>Active Play</h3>
+                        <p>Energetic play activities</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cafe">
+                    <img data-alias="gallery-7" alt="Gallery photo 7">
+                    <div class="gallery-overlay">
+                        <h3>Café Space</h3>
+                        <p>Comfortable café area</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img data-alias="gallery-8" alt="Gallery photo 8">
+                    <div class="gallery-overlay">
+                        <h3>Party Space</h3>
+                        <p>Celebration area</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-9" alt="Gallery photo 9">
+                    <div class="gallery-overlay">
+                        <h3>Play Structures</h3>
+                        <p>Fun play equipment</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-10" alt="Gallery photo 10">
+                    <div class="gallery-overlay">
+                        <h3>Children Playing</h3>
+                        <p>Happy children at play</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-11" alt="Gallery photo 11">
+                    <div class="gallery-overlay">
+                        <h3>Play Area</h3>
+                        <p>Spacious play zone</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-12" alt="Gallery photo 12">
+                    <div class="gallery-overlay">
+                        <h3>Interactive Zone</h3>
+                        <p>Engaging play space</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-13" alt="Gallery photo 13">
+                    <div class="gallery-overlay">
+                        <h3>Play Equipment</h3>
+                        <p>Quality play structures</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-14" alt="Gallery photo 14">
+                    <div class="gallery-overlay">
+                        <h3>Safe Play</h3>
+                        <p>Secure play environment</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-15" alt="Gallery photo 15">
+                    <div class="gallery-overlay">
+                        <h3>Active Play Zone</h3>
+                        <p>Energetic activities</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-16" alt="Gallery photo 16">
+                    <div class="gallery-overlay">
+                        <h3>Play Structures</h3>
+                        <p>Fun climbing equipment</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-17" alt="Gallery photo 17">
+                    <div class="gallery-overlay">
+                        <h3>Children at Play</h3>
+                        <p>Happy children enjoying playtime</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-18" alt="Gallery photo 18">
+                    <div class="gallery-overlay">
+                        <h3>Play Area</h3>
+                        <p>Spacious indoor playground</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-19" alt="Gallery photo 19">
+                    <div class="gallery-overlay">
+                        <h3>Interactive Play</h3>
+                        <p>Engaging play activities</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-20" alt="Gallery photo 20">
+                    <div class="gallery-overlay">
+                        <h3>Play Equipment</h3>
+                        <p>Quality play structures</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-21" alt="Gallery photo 21">
+                    <div class="gallery-overlay">
+                        <h3>Safe Play Zone</h3>
+                        <p>Secure play environment</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-22" alt="Gallery photo 22">
+                    <div class="gallery-overlay">
+                        <h3>Active Play</h3>
+                        <p>Energetic play activities</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-23" alt="Gallery photo 23">
+                    <div class="gallery-overlay">
+                        <h3>Play Structures</h3>
+                        <p>Fun climbing equipment</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-24" alt="Gallery photo 24">
+                    <div class="gallery-overlay">
+                        <h3>Children Playing</h3>
+                        <p>Happy children at play</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-25" alt="Gallery photo 25">
+                    <div class="gallery-overlay">
+                        <h3>Play Area</h3>
+                        <p>Spacious play zone</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="playground">
+                    <img data-alias="gallery-26" alt="Gallery photo 26">
+                    <div class="gallery-overlay">
+                        <h3>Interactive Zone</h3>
+                        <p>Engaging play space</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img data-alias="gallery-27" alt="Gallery photo 27">
+                    <div class="gallery-overlay">
+                        <h3>Party Celebration</h3>
+                        <p>Birthday party fun</p>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -197,7 +483,7 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Visit?</h2>
-                <p>See our space in person and experience the magic of Little Playroom CafÃ©</p>
+                <p>See our space in person and experience the magic of Little Playroom Café</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="cta-btn">Contact Us</a>
                     <a href="party.html" class="cta-btn secondary">Book a Party</a>
@@ -211,36 +497,45 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Little Playroom Café</h3>
-                    <p>7956 Tree Lane<br>Madison, WI 53717</p>
-                    <p>Phone: 608-345-9528</p>
-                    <p>Email: Playroommadison@gmail.com</p>
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Little Playroom Café Logo" class="footer-logo-img">
+                        <h3>Little Playroom Café</h3>
+                    </div>
+                    <p>Not Your Ordinary Playground</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/littleplayroom_cafe/profilecard/?igsh=MXhhZnFldG4zZ2du"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@littleplayroomcafe?_t=ZP-8ydQzYplgul&_r=1"><i class="fab fa-tiktok"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h4>Quick Links</h4>
                     <ul>
                         <li><a href="about.html">About</a></li>
                         <li><a href="menu.html">Menu</a></li>
-                        <li><a href="party.html">Party</a></li>
+                        <li><a href="party.html">Birthday Party</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/littleplayroom_cafe/profilecard/?igsh=MXhhZnFldG4zZ2du" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@littleplayroomcafe?_t=ZP-8ydQzYplgul&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    </div>
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 7956 Tree Lane, Madison, WI 53717</p>
+                    <p><i class="fas fa-phone"></i> (608) 345-9528</p>
+                    <p><i class="fas fa-envelope"></i> playroommadison@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 9:00 AM - 8:00 PM</p>
+                    <p>Saturday - Sunday: 10:00 AM - 9:00 PM</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Little Playroom CafÃ©. All rights reserved.</p>
+                <p>&copy; 2024 Little Playroom Café. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    `n    <script src="image-aliases.js"></script>
+    <script src="image-aliases.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
