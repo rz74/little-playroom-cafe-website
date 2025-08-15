@@ -78,19 +78,84 @@ function getImageUrl(alias) {
 // Function to replace all image aliases in the page
 function replaceImageAliases() {
     const images = document.querySelectorAll('img[data-alias]');
-    images.forEach(img => {
+    console.log(`Found ${images.length} images with data-alias attributes`);
+    
+    images.forEach((img, index) => {
         const alias = img.getAttribute('data-alias');
         const url = getImageUrl(alias);
+        console.log(`Image ${index + 1}: alias="${alias}", URL="${url}"`);
+        
         if (url && !url.includes('not found')) {
             img.src = url;
+            img.onload = () => console.log(`Image ${alias} loaded successfully`);
+            img.onerror = () => {
+                console.error(`Failed to load image for alias: ${alias}`);
+                // Add fallback styling for failed images
+                img.style.background = '#f0f0f0';
+                img.style.border = '2px dashed #ccc';
+                img.style.display = 'flex';
+                img.style.alignItems = 'center';
+                img.style.justifyContent = 'center';
+                img.style.color = '#666';
+                img.style.fontSize = '0.9rem';
+                img.style.fontFamily = 'Arial, sans-serif';
+                img.alt = `Image not available: ${alias}`;
+            };
         } else {
             console.warn(`Image alias "${alias}" not found`);
+            // Add fallback styling for missing aliases
+            img.style.background = '#f0f0f0';
+            img.style.border = '2px dashed #ccc';
+            img.style.display = 'flex';
+            img.style.alignItems = 'center';
+            img.style.justifyContent = 'center';
+            img.style.color = '#666';
+            img.style.fontSize = '0.9rem';
+            img.style.fontFamily = 'Arial, sans-serif';
+            img.alt = `Image alias not found: ${alias}`;
         }
     });
 }
 
 // Auto-replace aliases when DOM is loaded
-document.addEventListener('DOMContentLoaded', replaceImageAliases);
+document.addEventListener('DOMContentLoaded', function() {
+    replaceImageAliases();
+    
+    // Force mobile grid to render properly
+    forceMobileGridRender();
+});
+
+// Function to force mobile grid to render properly on mobile devices
+function forceMobileGridRender() {
+    const galleryGrid = document.querySelector('.gallery-grid');
+    if (galleryGrid && window.innerWidth <= 768) {
+        // Force grid reflow
+        galleryGrid.style.display = 'none';
+        galleryGrid.offsetHeight; // Force reflow
+        galleryGrid.style.display = 'grid';
+        
+        // Additional mobile grid fixes
+        galleryGrid.style.gridTemplateColumns = '1fr';
+        galleryGrid.style.gridAutoRows = 'minmax(200px, auto)';
+        
+        // Force all gallery items to be visible
+        const galleryItems = galleryGrid.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.style.display = 'block';
+            item.style.opacity = '1';
+            item.style.visibility = 'visible';
+        });
+        
+        console.log('Mobile grid rendering forced');
+    }
+}
+
+// Also trigger on window resize to handle orientation changes
+window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) {
+        setTimeout(forceMobileGridRender, 100);
+    }
+});
 
 // Export for use in other scripts
 if (typeof module !== 'undefined' && module.exports) {

@@ -404,6 +404,9 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
+    /* Force grid to initialize properly on mobile */
+    min-height: 0;
+    width: 100%;
 }
 
 .gallery-item {
@@ -422,6 +425,27 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    display: block;
+    background: #f0f0f0;
+    min-height: 200px;
+}
+
+/* Fallback for images that fail to load */
+.gallery-item img:not([src]),
+.gallery-item img[src=""] {
+    background: #f0f0f0;
+    position: relative;
+}
+
+.gallery-item img:not([src])::after,
+.gallery-item img[src=""]::after {
+    content: 'Image Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 0.9rem;
 }
 
 .gallery-overlay {
@@ -2488,6 +2512,9 @@ html {
 
 .gallery-section {
     padding: 4rem 0;
+    /* Ensure proper container dimensions */
+    width: 100%;
+    overflow: hidden;
 }
 
 .gallery-grid {
@@ -2501,23 +2528,23 @@ html {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
     cursor: pointer;
 }
 
 .gallery-item:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
 }
 
 .gallery-item img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
 }
 
 .gallery-overlay {
@@ -2528,12 +2555,12 @@ html {
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
     color: white;
     padding: 1.5rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    /* transform: translateY(100%); */
+    /* transition: transform 0.3s ease; */
 }
 
 .gallery-item:hover .gallery-overlay {
-    transform: translateY(0);
+    /* transform: translateY(0); */
 }
 
 .gallery-overlay h3 {
@@ -2624,6 +2651,7 @@ html {
 .lightbox-prev:hover,
 .lightbox-next:hover {
     background: rgba(255,255,255,0.3);
+    /* No transitions */
 }
 
 .gallery-cta {
@@ -2704,6 +2732,32 @@ html {
     
     .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1rem 0;
+        /* Force mobile grid to render properly */
+        display: grid !important;
+        min-height: 0;
+        width: 100%;
+        grid-auto-rows: minmax(200px, auto);
+    }
+    
+    .gallery-item {
+        min-height: 200px;
+        margin-bottom: 1rem;
+        /* Force items to be visible */
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .gallery-item img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        display: block !important;
+        /* Force image visibility */
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .filter-buttons {
@@ -2734,6 +2788,31 @@ html {
     .phone-btn,
     .cta-btn {
         width: 200px;
+    }
+    
+    .gallery-grid {
+        gap: 0.5rem;
+        margin: 0.5rem 0;
+        /* Force mobile grid to render properly */
+        display: grid !important;
+        grid-auto-rows: minmax(150px, auto);
+    }
+    
+    .gallery-item {
+        min-height: 150px;
+        margin-bottom: 0.5rem;
+        /* Force items to be visible */
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .gallery-item img {
+        height: 150px;
+        /* Force image visibility */
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 }
 
@@ -3291,4 +3370,60 @@ body[data-page="waiver"] .waiver-btn:hover,
 body[data-page="waiver"] .submit-waiver-btn:hover {
     transform: none !important;
     transition: none !important;
+}
+
+/* ===== GALLERY PAGE - NO ANIMATIONS ===== */
+/* Disable all animations on gallery page for clean, professional appearance */
+body[data-page="gallery"] .scroll-animate,
+body[data-page="gallery"] .scroll-animate.animate-in,
+body[data-page="gallery"] .scroll-animate.fade-in-left,
+body[data-page="gallery"] .scroll-animate.fade-in-right,
+body[data-page="gallery"] .scroll-animate.fade-in-up,
+body[data-page="gallery"] .scroll-animate.fade-in-down,
+body[data-page="gallery"] .scroll-animate.scale-in,
+body[data-page="gallery"] .scroll-animate.rotate-in,
+body[data-page="gallery"] .scroll-animate.stagger-1,
+body[data-page="gallery"] .scroll-animate.stagger-2,
+body[data-page="gallery"] .scroll-animate.stagger-3,
+body[data-page="gallery"] .scroll-animate.stagger-4,
+body[data-page="gallery"] .scroll-animate.stagger-5 {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+/* Ensure gallery page elements are visible without animations */
+body[data-page="gallery"] .gallery-hero,
+body[data-page="gallery"] .gallery-section,
+body[data-page="gallery"] .gallery-grid,
+body[data-page="gallery"] .gallery-item,
+body[data-page="gallery"] .gallery-overlay,
+body[data-page="gallery"] .gallery-cta,
+body[data-page="gallery"] .filter-buttons,
+body[data-page="gallery"] .filter-btn {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Disable hover animations on gallery page */
+body[data-page="gallery"] .gallery-item:hover,
+body[data-page="gallery"] .gallery-item:hover img,
+body[data-page="gallery"] .gallery-item:hover .gallery-overlay,
+body[data-page="gallery"] .filter-btn:hover,
+body[data-page="gallery"] .filter-btn.active {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Disable lightbox animations */
+body[data-page="gallery"] .lightbox,
+body[data-page="gallery"] .lightbox-content,
+body[data-page="gallery"] .close-lightbox,
+body[data-page="gallery"] .lightbox-prev,
+body[data-page="gallery"] .lightbox-next {
+    transition: none !important;
+    animation: none !important;
 } 
