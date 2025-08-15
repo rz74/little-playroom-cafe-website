@@ -5,11 +5,11 @@
 const IMAGE_ALIASES = {
     // Hero Images
     'hero-main': 'https://i.imgur.com/HvtOCVi.jpg',
+    'hero-main-2': 'https://i.imgur.com/c87O0f1.jpg',
     'cafe-interior-preview': 'https://i.imgur.com/4SQqoqO.jpg',
     'playground-preview': 'https://i.imgur.com/MHctG2N.jpg',
-    'party-preview': 'https://i.imgur.com/G8Zia12.jpg',
-    'cafe-preview': 'https://i.imgur.com/IIGs3bc.jpg',
-    'learning-preview': 'https://i.imgur.com/nSh6T4D.jpg',
+    'party-preview': 'https://i.imgur.com/IUxchYp.jpg',
+    'cafe-preview': 'https://i.imgur.com/DgZFAG8.jpg',
     
     // About Images
     'cafe-interior': 'https://i.imgur.com/oga7Dan.jpg',
@@ -47,7 +47,7 @@ const IMAGE_ALIASES = {
     'gallery-4': 'https://i.imgur.com/7rS6pHZ.jpg',
     'gallery-5': 'https://i.imgur.com/AhnSwQl.jpg',
     'gallery-6': 'https://i.imgur.com/gCrbhQK.jpg',
-    'gallery-7': 'https://i.imgur.com/DgZFAG8.jpg',
+    'gallery-7': 'https://i.imgur.com/IIGs3bc.jpg',
     'gallery-8': 'https://i.imgur.com/eO7V8Re.jpg',
     'gallery-9': 'https://i.imgur.com/3BTPZTC.jpg',
     'gallery-10': 'https://i.imgur.com/L9HV4yu.jpg',
@@ -67,7 +67,7 @@ const IMAGE_ALIASES = {
     'gallery-24': 'https://i.imgur.com/XlTmbwp.jpg',
     'gallery-25': 'https://i.imgur.com/xzHylu0.jpg',
     'gallery-26': 'https://i.imgur.com/tUxrZZS.jpg',
-    'gallery-27': 'https://i.imgur.com/IUxchYp.jpg'
+    'gallery-27': 'https://i.imgur.com/G8Zia12.jpg'
 };
 
 // Function to get image URL by alias

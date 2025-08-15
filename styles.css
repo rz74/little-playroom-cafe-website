@@ -9,7 +9,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: #f8f9fa;
+    background: #ffffff;
 }
 
 .container {
@@ -52,7 +52,7 @@ body {
 }
 
 .nav-logo .logo-img {
-    height: 150px;
+    height: 100px;
     width: auto;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     transition: transform 0.3s ease;
@@ -87,7 +87,7 @@ body {
 .nav-logo h2 {
     color: #ff6b6b;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .nav-menu {
@@ -154,7 +154,9 @@ body {
     text-align: center;
     color: white;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 501;
+    /* overflow: hidden; */
 }
 
 .hero::before {
@@ -175,7 +177,7 @@ body {
 
 .hero-content {
     z-index: 2;
-    animation: fadeInUp 1s ease-out;
+    animation: fadeInUp 0.1s ease-out;
 }
 
 .hero h6 {
@@ -184,6 +186,7 @@ body {
     margin-bottom: 1rem;
     opacity: 0.9;
     color: #ebebeb;
+    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
 }
 
 .hero h1 {
@@ -200,6 +203,7 @@ body {
     margin-bottom: 2rem;
     opacity: 0.9;
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
 }
 
 .hero p {
@@ -207,19 +211,40 @@ body {
     margin-bottom: 2rem;
     opacity: 0.9;
     color: #f5f5ff;
+    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
 }
 
 .hero-image {
     position: absolute;
-    right: 70%;
-    top: 0;
-    width: 40%;
-    height: 100%;
+    right: 60%;
+    top: 50%;
+    width: 60%;
+    height: 70%;
     overflow: hidden;
-    border-radius: 50px 400px 50px 100px;
+    border-radius: 400px 400px 400px 400px;
 }
 
 .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    filter: brightness(0.8) contrast(1.1);
+}
+
+
+
+.hero-image-2 {
+    position: absolute;
+    right: 0%;
+    top: 0;
+    width: 50%;
+    height: 80%;
+    overflow: hidden;
+    border-radius: 400px 10px 10px 400px;
+}
+
+.hero-image-2 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -267,6 +292,7 @@ body {
     color: #333;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
+    z-index: 500;
 }
 
 .quick-nav-item:hover {
