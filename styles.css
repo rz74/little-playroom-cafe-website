@@ -186,14 +186,14 @@ body {
     margin-bottom: 1rem;
     opacity: 0.9;
     color: #ebebeb;
-    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
+    text-shadow: 2px 2px 4px rgba(18, 17, 17, 0.5);
 }
 
 .hero h1 {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
+    text-shadow: 2px 2px 4px rgba(18, 17, 17, 0.5);
     color: #ffffff;
 }
 
@@ -203,7 +203,7 @@ body {
     margin-bottom: 2rem;
     opacity: 0.9;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
+    text-shadow: 2px 2px 4px rgba(18, 17, 17, 0.5);
 }
 
 .hero p {
@@ -211,7 +211,7 @@ body {
     margin-bottom: 2rem;
     opacity: 0.9;
     color: #f5f5ff;
-    text-shadow: 2px 2px 4px rgba(224, 224, 224, 0.2);
+    text-shadow: 2px 2px 4px rgba(18, 17, 17, 0.5);
 }
 
 .hero-image {
@@ -543,6 +543,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-shadow: 2px 2px 4px rgba(18, 17, 17, 0.5);
 }
 
 .about-content {
