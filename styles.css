@@ -1594,6 +1594,16 @@ body {
         border-left: 4px solid #ff6b6b;
     }
 
+    /* Extra space below waiver link in mobile menu */
+    .nav-menu li:last-child {
+        margin-bottom: 5rem;
+        border-bottom: none;
+    }
+
+    .nav-menu li:last-child a {
+        margin-bottom: 1rem;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -3239,4 +3249,46 @@ html {
     .note-content h3 {
         font-size: 1.5rem;
     }
+}
+
+/* ===== WAIVER PAGE - NO ANIMATIONS ===== */
+/* Disable all animations on waiver page for clean, professional appearance */
+body[data-page="waiver"] .scroll-animate,
+body[data-page="waiver"] .scroll-animate.animate-in,
+body[data-page="waiver"] .scroll-animate.fade-in-left,
+body[data-page="waiver"] .scroll-animate.fade-in-right,
+body[data-page="waiver"] .scroll-animate.fade-in-up,
+body[data-page="waiver"] .scroll-animate.fade-in-down,
+body[data-page="waiver"] .scroll-animate.scale-in,
+body[page="waiver"] .scroll-animate.rotate-in,
+body[data-page="waiver"] .scroll-animate.stagger-1,
+body[data-page="waiver"] .scroll-animate.stagger-2,
+body[data-page="waiver"] .scroll-animate.stagger-3,
+body[data-page="waiver"] .scroll-animate.stagger-4,
+body[data-page="waiver"] .scroll-animate.stagger-5 {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+/* Ensure waiver page elements are visible without animations */
+body[data-page="waiver"] .waiver-hero,
+body[data-page="waiver"] .waiver-content,
+body[data-page="waiver"] .legal-disclaimer,
+body[data-page="waiver"] .waiver-form,
+body[data-page="waiver"] .company-info,
+body[data-page="waiver"] .disclaimer-text,
+body[data-page="waiver"] .final-notice {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Disable hover animations on waiver page */
+body[data-page="waiver"] .waiver-btn:hover,
+body[data-page="waiver"] .submit-waiver-btn:hover {
+    transform: none !important;
+    transition: none !important;
 } 
