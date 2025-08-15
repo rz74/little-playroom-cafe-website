@@ -26,10 +26,10 @@ https://drive.google.com/uc?export=view&id=1ABC123DEF456
 #### **🏠 index.html - Hero Section:**
 ```html
 <!-- Line 50: Main hero image -->
-<img src="YOUR_GOOGLE_DRIVE_HERO_LINK" alt="Kids playing in café">
+<img src="YOUR_GOOGLE_DRIVE_HERO_LINK" alt="Kids playing in cafe">
 
 <!-- Line 103: Cafe interior preview -->
-<img src="YOUR_GOOGLE_DRIVE_CAFE_INTERIOR_LINK" alt="Café interior">
+<img src="YOUR_GOOGLE_DRIVE_CAFE_INTERIOR_LINK" alt="Cafe interior">
 
 <!-- Line 115: Playground preview -->
 <img src="YOUR_GOOGLE_DRIVE_PLAYGROUND_LINK" alt="Playground area">
@@ -38,7 +38,7 @@ https://drive.google.com/uc?export=view&id=1ABC123DEF456
 <img src="YOUR_GOOGLE_DRIVE_PARTY_LINK" alt="Party area">
 
 <!-- Line 127: Cafe preview -->
-<img src="YOUR_GOOGLE_DRIVE_CAFE_PREVIEW_LINK" alt="Café area">
+<img src="YOUR_GOOGLE_DRIVE_CAFE_PREVIEW_LINK" alt="Cafe area">
 
 <!-- Line 133: Learning preview -->
 <img src="YOUR_GOOGLE_DRIVE_LEARNING_LINK" alt="Learning area">
@@ -47,7 +47,7 @@ https://drive.google.com/uc?export=view&id=1ABC123DEF456
 #### **📖 about.html - About Section:**
 ```html
 <!-- Line 43: Cafe interior -->
-<img src="YOUR_GOOGLE_DRIVE_ABOUT_CAFE_LINK" alt="Little Playroom Café interior">
+<img src="YOUR_GOOGLE_DRIVE_ABOUT_CAFE_LINK" alt="Little Playroom Cafe interior">
 ```
 
 #### **🍽️ menu.html - Menu Section:**

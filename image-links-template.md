@@ -64,12 +64,12 @@ Once you have your Google Drive links, replace the Unsplash URLs in your HTML fi
 
 **Before (Unsplash):**
 ```html
-<img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=900" alt="Kids playing in café">
+<img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&h=900" alt="Kids playing in cafe">
 ```
 
 **After (Google Drive):**
 ```html
-<img src="https://drive.google.com/uc?export=view&id=YOUR_FILE_ID" alt="Kids playing in café">
+<img src="https://drive.google.com/uc?export=view&id=YOUR_FILE_ID" alt="Kids playing in cafe">
 ```
 
 ## 🚀 **Quick Setup Steps:**

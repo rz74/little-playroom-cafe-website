@@ -67,8 +67,8 @@ class FooterLoader {
                     <div class="footer-content">
                         <div class="footer-section">
                             <div class="footer-logo">
-                                <img src="images/logo.svg" alt="Little Playroom Café Logo" class="footer-logo-img">
-                                <h3>Little Playroom Café</h3>
+                                <img src="images/logo.svg" alt="Little Playroom Cafe Logo" class="footer-logo-img">
+                                <h3>Little Playroom Cafe</h3>
                             </div>
                             <p>Not Your Ordinary Playground</p>
                             <div class="social-links">
@@ -99,7 +99,7 @@ class FooterLoader {
                         </div>
                     </div>
                     <div class="footer-bottom">
-                        <p>&copy; 2024 Little Playroom Café. All rights reserved.</p>
+                        <p>&copy; 2024 Little Playroom Cafe. All rights reserved.</p>
                     </div>
                 </div>
             </footer>

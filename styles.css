@@ -1241,6 +1241,115 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* Company Info Styles */
+.company-info {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #ff6b6b;
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.company-logo {
+    flex-shrink: 0;
+}
+
+.waiver-logo {
+    height: 180px;
+    width: auto;
+}
+
+.company-details {
+    flex: 1;
+    text-align: left;
+}
+
+.company-details h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.company-details h4 {
+    color: #ff6b6b;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.company-details p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.company-details p:last-child {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Responsive styles for company info */
+@media (max-width: 768px) {
+    .company-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .company-details {
+        text-align: center;
+    }
+    
+    .waiver-logo {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-info {
+        padding: 1rem;
+    }
+    
+    .company-details h3 {
+        font-size: 1.3rem;
+    }
+    
+    .company-details h4 {
+        font-size: 1.1rem;
+    }
+    
+    .waiver-logo {
+        height: 50px;
+    }
+}
+
+/* Final Notice Styles */
+.final-notice {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.final-notice p {
+    color: #856404;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
 /* Footer */
 .footer {
     background: #333;
@@ -2038,6 +2147,7 @@ html {
 .addon-services {
     background: #f8f9fa;
     padding: 4rem 0;
+    text-align: center;
 }
 
 .addon-grid {
@@ -2129,7 +2239,7 @@ html {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: #ffffff;
+    color: #ff6b6b;
 }
 
 .checkbox-group input[type="checkbox"] {

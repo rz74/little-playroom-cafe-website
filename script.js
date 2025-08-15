@@ -313,18 +313,12 @@ function showNotification(message, type = 'info') {
 }
 
 // Button click handlers
-document.querySelectorAll('.cta-button, .waiver-btn, .gift-card-btn').forEach(button => {
+document.querySelectorAll('.cta-button, .gift-card-btn').forEach(button => {
     button.addEventListener('click', function(e) {
         e.preventDefault();
         const buttonText = this.textContent;
         
-        if (buttonText.includes('WAIVER')) {
-            showNotification('Waiver form will open in a new window. Please complete and submit.', 'info');
-            // In a real implementation, this would open a waiver form
-            setTimeout(() => {
-                window.open('#', '_blank');
-            }, 1000);
-        } else if (buttonText.includes('gift card')) {
+        if (buttonText.includes('gift card')) {
             showNotification('Gift card purchase form will open shortly.', 'info');
             // In a real implementation, this would open a gift card purchase form
             setTimeout(() => {

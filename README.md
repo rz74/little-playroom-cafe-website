@@ -1,6 +1,6 @@
-# Little Playroom Café Website
+# Little Playroom Cafe Website
 
-A modern, responsive website for Little Playroom Café, a kids café and play space in Madison, WI. This website features a beautiful, interactive design with smooth animations and mobile-first responsive layout.
+A modern, responsive website for Little Playroom Cafe, a kids cafe and play space in Madison, WI. This website features a beautiful, interactive design with smooth animations and mobile-first responsive layout.
 
 ## 🎯 Features
 
@@ -82,9 +82,9 @@ The website uses a modern color palette:
 1. **Hero Section**: Eye-catching landing area with call-to-action
 2. **Hours Section**: Operating hours in an easy-to-read format
 3. **Notices**: Important information about waivers and socks
-4. **About Section**: Description of the café concept
+4. **About Section**: Description of the cafe concept
 5. **Services**: Party planning and event services
-6. **Features**: Play, Café, and Party highlights
+6. **Features**: Play, Cafe, and Party highlights
 7. **Rules**: Important guidelines for visitors
 8. **Gift Cards**: Gift card information and benefits
 9. **Testimonials**: Customer reviews and feedback
@@ -147,4 +147,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Note**: This is a template website inspired by the Playroom Café Social design. All content should be customized for your specific business needs.
+**Note**: This is a template website inspired by the Playroom Cafe Social design. All content should be customized for your specific business needs.

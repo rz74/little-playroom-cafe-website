@@ -1,7 +1,7 @@
 {
-      "name": "Little Playroom Café",
-      "short_name": "Little Playroom Café",
-      "description": "Not Your Ordinary Playground - A modern kids café and play space in Madison, WI",
+      "name": "Little Playroom Cafe",
+      "short_name": "Little Playroom Cafe",
+      "description": "Not Your Ordinary Playground - A modern kids cafe and play space in Madison, WI",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#667eea",
