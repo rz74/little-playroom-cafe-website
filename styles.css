@@ -883,6 +883,7 @@ body {
 
 .contact-form .form-group {
     margin-bottom: 1.5rem;
+    color: #333;
 }
 
 .contact-form label {
@@ -1170,7 +1171,7 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #333;
+    color: #ff6b6b;
 }
 
 .form-group input,
@@ -2087,12 +2088,12 @@ html {
 }
 
 .booking-info h2 {
-    color: #333;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
 .booking-info p {
-    color: #666;
+    color: #ffffff;
     margin-bottom: 2rem;
 }
 
@@ -2110,11 +2111,11 @@ html {
     display: flex;
     align-items: center;
     margin-bottom: 0.8rem;
-    color: #555;
+    color: #ffffff;
 }
 
 .booking-details i {
-    color: #28a745;
+    color: #25ff58;
     margin-right: 0.8rem;
 }
 
@@ -2128,7 +2129,7 @@ html {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: #555;
+    color: #ffffff;
 }
 
 .checkbox-group input[type="checkbox"] {
