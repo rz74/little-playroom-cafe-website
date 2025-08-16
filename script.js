@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Form submission handling
 const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Get form data
@@ -219,9 +219,31 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
-        this.reset();
+        try {
+            // Send email notification
+            if (window.EmailService) {
+                const emailService = new EmailService();
+                const formDataObj = {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message,
+                    subject: 'Contact Form Submission'
+                };
+                
+                await emailService.sendFormNotification('contact', formDataObj);
+                console.log('Contact form email notification sent');
+            }
+            
+            // Show success message
+            showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
+            this.reset();
+            
+        } catch (error) {
+            console.error('Failed to send contact form:', error);
+            showNotification('Message sent, but there was an issue with email notification.', 'warning');
+            this.reset();
+        }
     });
 }
 

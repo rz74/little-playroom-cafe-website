@@ -432,11 +432,22 @@ class ReservationCalendar {
                 console.log('Reservation event created in Google Calendar:', event);
             }
             
+            // Send email notification
+            try {
+                const emailService = new EmailService();
+                const formDataObj = Object.fromEntries(formData);
+                await emailService.sendFormNotification('reservation', formDataObj);
+                console.log('Reservation email notification sent');
+            } catch (emailError) {
+                console.error('Failed to send email notification:', emailError);
+                // Continue with form submission even if email fails
+            }
+            
             // Simulate form submission (in real app, this would send to backend)
             console.log('Reservation submitted:', Object.fromEntries(formData));
             
             // Show success message
-            alert('Reservation submitted successfully! Check your Google Calendar for the event.');
+            alert('Reservation submitted successfully! Check your Google Calendar for the event and check your email for confirmation.');
             
             // Refresh availability to reflect the new booking
             await this.loadAvailability();

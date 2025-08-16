@@ -285,6 +285,58 @@
     <script src="image-aliases.js"></script>
     <script src="footer-loader.js"></script>
     <script src="script.js"></script>
+    <script src="email-config.js"></script>
+    <script src="email-service.js"></script>
+    <script>
+        // Party form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const decorBookingForm = document.getElementById('decorBookingForm');
+            
+            if (decorBookingForm) {
+                decorBookingForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    try {
+                        // Collect form data
+                        const formData = new FormData(this);
+                        
+                        // Get selected add-ons
+                        const selectedAddons = [];
+                        const addonCheckboxes = this.querySelectorAll('input[name="addons"]:checked');
+                        addonCheckboxes.forEach(checkbox => {
+                            selectedAddons.push(checkbox.value);
+                        });
+                        
+                        // Create form data object
+                        const formDataObj = {
+                            name: formData.get('name'),
+                            email: formData.get('email'),
+                            phone: formData.get('phone'),
+                            partyDate: formData.get('date'),
+                            partyTime: formData.get('time'),
+                            addOnServices: selectedAddons.length > 0 ? selectedAddons.join(', ') : 'None selected',
+                            notes: formData.get('notes'),
+                            decorationPackage: 'Standard Decoration Package'
+                        };
+                        
+                        // Send email notification
+                        const emailService = new EmailService();
+                        await emailService.sendFormNotification('party', formDataObj);
+                        
+                        // Show success message
+                        alert('Thank you! Your decoration package has been booked. We will contact you within 24 hours to confirm details.');
+                        
+                        // Reset form
+                        this.reset();
+                        
+                    } catch (error) {
+                        console.error('Failed to submit party form:', error);
+                        alert('Failed to submit form. Please try again.');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html> 
 

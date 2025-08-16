@@ -2744,28 +2744,105 @@ html {
     /* Calendar mobile styles */
     .calendar-wrapper {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1rem;
+        max-height: 70vh;
+        overflow: auto;
     }
-    
-
     
     .calendar-container,
     .time-slot-selection {
-        padding: 1.5rem;
+        padding: 1rem;
     }
     
-    .calendar-day {
-        min-height: 50px;
-        padding: 0.3rem;
+    .calendar-header-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
     }
+    
+    .calendar-nav-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .calendar-header-controls h3 {
+        font-size: 1.1rem;
+        order: -1;
+        margin: 0;
+    }
+    
+    .calendar-weekdays {
+        gap: 0.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .weekday {
+        font-size: 0.7rem;
+        padding: 0.2rem;
+    }
+    
+    .calendar-days {
+        gap: 0.2rem;
+    }
+    
+          .calendar-day {
+          /* width: 20%; */
+          padding: 0.2rem;
+          border-radius: 4px;
+      }
     
     .day-number {
-        font-size: 1rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.05rem;
     }
     
     .availability-indicator {
-        font-size: 0.6rem;
-        padding: 0.1rem 0.3rem;
+        font-size: 0.5rem;
+        padding: 0.05rem 0.15rem;
+        line-height: 1;
+    }
+    
+    .calendar-legend {
+        flex-direction: column;
+        gap: 0.3rem;
+        align-items: center;
+        margin-top: 0.8rem;
+    }
+    
+    .legend-item {
+        font-size: 0.7rem;
+    }
+    
+    .time-slot {
+        padding: 0.6rem;
+        margin-bottom: 0.3rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.3rem;
+    }
+    
+    .time-display {
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+    
+    .availability-status {
+        font-size: 0.7rem;
+        opacity: 1;
+    }
+    
+    .selected-info {
+        padding: 0.8rem;
+    }
+    
+    .selected-info h4 {
+        font-size: 1rem;
+    }
+    
+    .selected-details p {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
     }
     
     .gallery-item {
@@ -2844,35 +2921,239 @@ html {
     
     /* Calendar small mobile styles */
     .calendar-header h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .calendar-header p {
+        font-size: 0.9rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
     
     .calendar-container,
     .time-slot-selection {
-        padding: 1rem;
+        padding: 0.8rem;
+        border-radius: 8px;
+    }
+    
+    .calendar-header-controls {
+        gap: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .calendar-nav-btn {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
+        border-radius: 4px;
+    }
+    
+    .calendar-header-controls h3 {
+        font-size: 1rem;
+    }
+    
+          .calendar-weekdays {
+          gap: 0.15rem;
+          margin-bottom: 0.5rem;
+      }
+    
+    .weekday {
+        font-size: 0.65rem;
+        padding: 0.15rem;
+    }
+    
+    .calendar-days {
+        gap: 0.15rem;
     }
     
     .calendar-day {
-        min-height: 40px;
-        padding: 0.2rem;
+        min-height: 32px;
+        padding: 0.15rem;
+        border-radius: 3px;
     }
     
     .day-number {
-        font-size: 0.9rem;
+        font-size: 0.75rem;
+        margin-bottom: 0.02rem;
     }
     
     .availability-indicator {
-        font-size: 0.5rem;
-        padding: 0.1rem 0.2rem;
+        font-size: 0.45rem;
+        padding: 0.02rem 0.1rem;
+        line-height: 1;
+        border-radius: 2px;
+    }
+    
+    .calendar-legend {
+        gap: 0.3rem;
+        margin-top: 0.6rem;
+    }
+    
+    .legend-item {
+        font-size: 0.65rem;
+        gap: 0.2rem;
+    }
+    
+    .legend-color {
+        width: 12px;
+        height: 12px;
     }
     
     .time-slot {
-        padding: 0.8rem;
-        margin-bottom: 0.3rem;
+        padding: 0.5rem;
+        margin-bottom: 0.25rem;
+        border-radius: 4px;
     }
     
     .time-display {
-        font-size: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .availability-status {
+        font-size: 0.65rem;
+    }
+    
+    .selected-info {
+        padding: 0.6rem;
+        border-radius: 4px;
+    }
+    
+    .selected-info h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .selected-details p {
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .no-date-selected,
+    .no-availability {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+    .calendar-wrapper {
+        max-height: 60vh;
+        overflow: auto;
+    }
+    
+    .calendar-header h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .calendar-header p {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+    }
+    
+    .calendar-container,
+    .time-slot-selection {
+        padding: 0.6rem;
+        border-radius: 6px;
+    }
+    
+    .calendar-header-controls {
+        gap: 0.4rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .calendar-nav-btn {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.6rem;
+        border-radius: 3px;
+    }
+    
+    .calendar-header-controls h3 {
+        font-size: 0.9rem;
+    }
+    
+    .calendar-weekdays {
+        gap: 0.1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .weekday {
+        font-size: 0.6rem;
+        padding: 0.1rem;
+    }
+    
+    .calendar-days {
+        gap: 0.1rem;
+    }
+    
+    .calendar-day {
+        min-height: 28px;
+        padding: 0.1rem;
+        border-radius: 2px;
+    }
+    
+    .day-number {
+        font-size: 0.7rem;
+        margin-bottom: 0.01rem;
+    }
+    
+    .availability-indicator {
+        font-size: 0.4rem;
+        padding: 0.01rem 0.08rem;
+        line-height: 1;
+        border-radius: 1px;
+    }
+    
+    .calendar-legend {
+        gap: 0.2rem;
+        margin-top: 0.5rem;
+    }
+    
+    .legend-item {
+        font-size: 0.6rem;
+        gap: 0.15rem;
+    }
+    
+    .legend-color {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .time-slot {
+        padding: 0.4rem;
+        margin-bottom: 0.2rem;
+        border-radius: 3px;
+    }
+    
+    .time-display {
+        font-size: 0.8rem;
+    }
+    
+    .availability-status {
+        font-size: 0.6rem;
+    }
+    
+    .selected-info {
+        padding: 0.5rem;
+        border-radius: 3px;
+    }
+    
+    .selected-info h4 {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .selected-details p {
+        font-size: 0.7rem;
+        margin-bottom: 0.15rem;
+    }
+    
+    .no-date-selected,
+    .no-availability {
+        padding: 0.8rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -2885,6 +3166,76 @@ html {
 .calendar-selection-section {
     padding: 4rem 0;
     background: #f8f9fa;
+}
+
+/* Mobile calendar section adjustments */
+@media (max-width: 768px) {
+    .calendar-selection-section {
+        padding: 2rem 0;
+        width:100%;
+    }
+    
+    .calendar-content {
+        padding: 0 1rem;
+        width:100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-selection-section {
+        padding: 1.5rem 0;
+        width:100%;
+    }
+    
+    .calendar-content {
+        padding: 0 0.5rem;
+        width:100%;
+    }
+}
+
+/* ===== RESPONSIVE CALENDAR BREAKPOINTS ===== */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+    .calendar-wrapper {
+        gap: 2.5rem;
+    }
+    
+    .calendar-container,
+    .time-slot-selection {
+        padding: 1.8rem;
+    }
+    
+    .calendar-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .calendar-header p {
+        font-size: 1.05rem;
+    }
+    
+    .calendar-day {
+        min-height: 55px;
+        padding: 0.4rem;
+    }
+    
+    .day-number {
+        font-size: 1.05rem;
+    }
+    
+    .availability-indicator {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.35rem;
+    }
+    
+    .time-slot {
+        padding: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .time-display {
+        font-size: 1.15rem;
+    }
 }
 
 .calendar-header {
@@ -2909,6 +3260,29 @@ html {
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
+    overflow: auto;
+    max-height: 80vh;
+    scrollbar-width: thin;
+    scrollbar-color: #ff6b6b #f0f0f0;
+}
+
+/* Custom scrollbar styling for webkit browsers */
+.calendar-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-thumb {
+    background: #ff6b6b;
+    border-radius: 4px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #ff5252;
 }
 
 .calendar-container {
@@ -3005,6 +3379,57 @@ html {
 .calendar-day.available:hover {
     background: #c8e6c9;
     transform: scale(1.05);
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .calendar-day.available:active {
+        background: #c8e6c9;
+        transform: scale(0.98);
+    }
+    
+    .calendar-nav-btn:active {
+        background: #ff5252;
+        transform: scale(0.95);
+    }
+    
+    .time-slot.available:active {
+        background: #c8e6c9;
+        transform: translateX(3px);
+    }
+}
+
+/* Accessibility improvements for mobile */
+@media (max-width: 768px) {
+    .calendar-day {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        touch-action: manipulation;
+    }
+    
+    .calendar-nav-btn {
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        touch-action: manipulation;
+        /* min-height: 44px; iOS recommended touch target size
+        min-width: 44px; */
+    }
+    
+    .time-slot {
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        touch-action: manipulation;
+        /* min-height: 44px; */
+    }
+    
+    /* Improve text readability on small screens */
+    .availability-indicator {
+        font-weight: 600;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .day-number {
+        font-weight: 700;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
 }
 
 .calendar-day.unavailable {

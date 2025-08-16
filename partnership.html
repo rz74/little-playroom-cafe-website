@@ -154,6 +154,52 @@
     <script src="image-aliases.js"></script>
     <script src="footer-loader.js"></script>
     <script src="script.js"></script>
+    <script src="email-config.js"></script>
+    <script src="email-service.js"></script>
+    <script>
+        // Partnership form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const partnershipForm = document.getElementById('partnershipForm');
+            
+            if (partnershipForm) {
+                partnershipForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    try {
+                        // Collect form data
+                        const formData = new FormData(this);
+                        
+                        // Create form data object
+                        const formDataObj = {
+                            name: formData.get('name'),
+                            email: formData.get('email'),
+                            phone: formData.get('phone'),
+                            company: formData.get('location'), // Using location as company for now
+                            partnershipType: 'Franchise Partnership',
+                            businessDescription: formData.get('experience'),
+                            proposal: formData.get('message'),
+                            preferredContactTime: 'Business Hours',
+                            investmentCapacity: formData.get('investment')
+                        };
+                        
+                        // Send email notification
+                        const emailService = new EmailService();
+                        await emailService.sendFormNotification('partnership', formDataObj);
+                        
+                        // Show success message
+                        alert('Thank you for your partnership inquiry! We will contact you within 24 hours to discuss opportunities.');
+                        
+                        // Reset form
+                        this.reset();
+                        
+                    } catch (error) {
+                        console.error('Failed to submit partnership form:', error);
+                        alert('Failed to submit form. Please try again.');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html> 
 
