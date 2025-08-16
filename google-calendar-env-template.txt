@@ -1,0 +1,17 @@
+# Google Calendar API Configuration
+# Copy this file to .env and fill in your actual values
+
+# Your Google Cloud Console API Key
+GOOGLE_API_KEY=your_api_key_here
+
+# Your OAuth 2.0 Client ID
+GOOGLE_CLIENT_ID=your_client_id_here
+
+# Your OAuth 2.0 Client Secret
+GOOGLE_CLIENT_SECRET=your_client_secret_here
+
+# Your Google Calendar ID (usually your email address)
+GOOGLE_CALENDAR_ID=primary
+
+# Optional: Custom calendar ID if not using primary
+# GOOGLE_CALENDAR_ID=your_email@gmail.com 
