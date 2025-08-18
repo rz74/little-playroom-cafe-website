@@ -12,13 +12,13 @@ const GOOGLE_CALENDAR_CONFIG = {
     
     // Business hours configuration
     businessHours: {
-        monday: { start: '09:00', end: '20:00' },
-        tuesday: { start: '09:00', end: '20:00' },
-        wednesday: { start: '09:00', end: '20:00' },
-        thursday: { start: '09:00', end: '20:00' },
-        friday: { start: '09:00', end: '20:00' },
-        saturday: { start: '09:00', end: '20:00' },
-        sunday: { start: '10:00', end: '18:00' }
+        monday: { start: '09:30', end: '20:00' },
+        tuesday: { start: '09:30', end: '20:00' },
+        wednesday: { start: '09:30', end: '20:00' },
+        thursday: { start: '09:30', end: '20:00' },
+        friday: { start: '09:30', end: '20:30' },
+        saturday: { start: '09:30', end: '20:30' },
+        sunday: { start: '09:30', end: '20:00' }
     },
     
     // Time slot configuration (3-hour slots)

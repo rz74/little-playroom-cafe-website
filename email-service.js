@@ -1,5 +1,5 @@
 // Email Service for Form Submissions
-// Handles sending email notifications for all forms
+// Handles sending email notifications directly via SMTP
 
 class EmailService {
     constructor() {
@@ -10,46 +10,21 @@ class EmailService {
     
     async init() {
         try {
-            // Load EmailJS if not already loaded
-            if (!window.emailjs) {
-                await this.loadEmailJS();
-            }
-            
-            // Initialize EmailJS
-            if (window.emailjs) {
-                window.emailjs.init(this.config.emailService.userId);
-                this.isInitialized = true;
-                console.log('EmailJS initialized successfully');
-            } else {
-                console.warn('EmailJS not available, using fallback method');
-            }
+            // Initialize direct email service
+            this.isInitialized = true;
+            console.log('Direct email service initialized successfully');
         } catch (error) {
             console.error('Failed to initialize email service:', error);
         }
     }
     
-    async loadEmailJS() {
-        return new Promise((resolve, reject) => {
-            if (window.emailjs) {
-                resolve();
-                return;
-            }
-            
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-            script.onload = () => resolve();
-            script.onerror = reject;
-            document.head.appendChild(script);
-        });
-    }
-    
     // Send email notification for any form type
     async sendFormNotification(formType, formData, additionalData = {}) {
         try {
-            if (this.isInitialized && window.emailjs) {
-                return await this.sendViaEmailJS(formType, formData, additionalData);
+            if (this.isInitialized) {
+                return await this.sendViaDirectSMTP(formType, formData, additionalData);
             } else {
-                return await this.sendViaFallback(formType, formData, additionalData);
+                throw new Error('Email service not initialized');
             }
         } catch (error) {
             console.error('Failed to send email notification:', error);
@@ -57,67 +32,59 @@ class EmailService {
         }
     }
     
-    // Send via EmailJS (primary method)
-    async sendViaEmailJS(formType, formData, additionalData) {
-        const templateParams = this.buildTemplateParams(formType, formData, additionalData);
-        
-        return new Promise((resolve, reject) => {
-            window.emailjs.send(
-                this.config.emailService.serviceId,
-                this.config.emailService.templateId,
-                templateParams
-            ).then(
-                (response) => {
-                    console.log('Email sent successfully:', response);
-                    resolve(response);
-                },
-                (error) => {
-                    console.error('EmailJS error:', error);
-                    reject(error);
-                }
-            );
-        });
-    }
-    
-    // Fallback method using a simple form submission
-    async sendViaFallback(formType, formData, additionalData) {
+    // Send via direct SMTP connection
+    async sendViaDirectSMTP(formType, formData, additionalData) {
         const emailContent = this.buildEmailContent(formType, formData, additionalData);
+        const subject = this.config.subjectPrefixes[formType] || 'Form Submission';
         
         try {
-            // Create a temporary form to submit to a service that can send emails
-            // This will send from jiangdl0129@gmail.com to itself
-            const formSubmission = await this.submitToEmailService(formType, emailContent, formData);
+            // Create the email data
+            const emailData = {
+                to: this.config.recipientEmail,
+                from: this.config.senderEmail || this.config.recipientEmail,
+                subject: subject,
+                text: emailContent,
+                html: this.convertToHTML(emailContent)
+            };
             
-            console.log('Fallback email submission successful:', formSubmission);
-            return { status: 'email_sent_via_fallback', data: formSubmission };
+            // CC a copy to the user and set reply-to if they provided an email
+            const userEmail = formData && formData.email ? String(formData.email).trim() : '';
+            if (userEmail) {
+                emailData.cc = userEmail;
+                emailData.replyTo = `${formData.name || userEmail} <${userEmail}>`;
+            }
+            
+            // Send via your backend endpoint
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(emailData)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            console.log('Email sent successfully via direct SMTP:', result);
+            return result;
             
         } catch (error) {
-            console.error('Fallback email submission failed:', error);
-            
-            // If all else fails, show the email content to the user
-            // so they can manually copy and send it
-            this.showEmailContentToUser(formType, emailContent);
-            
-            return { status: 'fallback_failed', error: error.message };
+            console.error('Direct SMTP error:', error);
+            throw error;
         }
     }
     
-    // Build template parameters for EmailJS
-    buildTemplateParams(formType, formData, additionalData) {
-        const subject = this.config.subjectPrefixes[formType] || 'Form Submission';
-        const content = this.buildEmailContent(formType, formData, additionalData);
-        
-        return {
-            to_email: this.config.recipientEmail,
-            from_name: formData.name || 'Website Visitor',
-            from_email: formData.email || 'no-reply@website.com',
-            subject: subject,
-            message: content,
-            form_type: formType,
-            business_name: this.config.businessInfo.name,
-            business_address: this.config.businessInfo.address,
-            business_phone: this.config.businessInfo.phone
-        };
+
+    
+    // Convert plain text to HTML format
+    convertToHTML(text) {
+        return text
+            .replace(/\n/g, '<br>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>');
     }
     
     // Build email content based on form type
@@ -303,140 +270,7 @@ ${this.config.businessInfo.phone}
         `.trim();
     }
     
-    // Submit form data to an email service (Formspree, Netlify Forms, etc.)
-    async submitToEmailService(formType, emailContent, formData) {
-        // Try to use Formspree as a free email service
-        const formspreeEndpoint = `https://formspree.io/f/${this.config.emailService.formspreeFormId || 'default'}`;
-        
-        try {
-            const response = await fetch(formspreeEndpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    _subject: this.config.subjectPrefixes[formType] || 'Form Submission',
-                    _replyto: formData.email || 'no-reply@website.com',
-                    _cc: this.config.recipientEmail, // Send to jiangdl0129@gmail.com
-                    message: emailContent,
-                    formType: formType,
-                    formData: formData,
-                    timestamp: new Date().toISOString()
-                })
-            });
-            
-            if (response.ok) {
-                return { success: true, message: 'Email sent via Formspree' };
-            } else {
-                throw new Error(`Formspree submission failed: ${response.status}`);
-            }
-            
-        } catch (error) {
-            console.warn('Formspree submission failed, trying alternative method:', error);
-            
-            // Alternative: Use a simple POST to a service that can handle emails
-            return await this.submitToAlternativeService(formType, emailContent, formData);
-        }
-    }
-    
-    // Alternative email submission method
-    async submitToAlternativeService(formType, emailContent, formData) {
-        // This could be your own backend endpoint or another email service
-        // For now, we'll simulate a successful submission
-        console.log('Using alternative email service for:', formType);
-        
-        // Simulate sending email from jiangdl0129@gmail.com to itself
-        const emailData = {
-            from: this.config.recipientEmail, // jiangdl0129@gmail.com
-            to: this.config.recipientEmail,   // jiangdl0129@gmail.com
-            subject: this.config.subjectPrefixes[formType] || 'Form Submission',
-            content: emailContent,
-            formType: formType,
-            timestamp: new Date().toISOString()
-        };
-        
-        // Log the email data (in production, this would be sent to your server)
-        console.log('Email data prepared for sending:', emailData);
-        
-        // Return success status
-        return { 
-            success: true, 
-            message: 'Email prepared for sending from jiangdl0129@gmail.com to itself',
-            emailData: emailData
-        };
-    }
-    
-    // Show email content to user if all methods fail
-    showEmailContentToUser(formType, emailContent) {
-        // Create a modal or alert showing the email content
-        const modal = document.createElement('div');
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        `;
-        
-        const content = document.createElement('div');
-        content.style.cssText = `
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        `;
-        
-        content.innerHTML = `
-            <h3 style="margin: 0 0 20px 0; color: #333;">📧 Email Content Generated</h3>
-            <p style="margin: 0 0 15px 0; color: #666;">
-                The form was submitted successfully, but we couldn't send the email automatically. 
-                Here's the email content that would have been sent to ${this.config.recipientEmail}:
-            </p>
-            <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0; font-family: monospace; white-space: pre-wrap; font-size: 12px; max-height: 300px; overflow-y: auto;">
-                ${emailContent}
-            </div>
-            <p style="margin: 15px 0; color: #666; font-size: 14px;">
-                <strong>Note:</strong> This email would be sent from ${this.config.recipientEmail} to itself.
-            </p>
-            <button onclick="this.closest('.email-modal').remove()" style="
-                background: #ff6b6b;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-            ">Close</button>
-        `;
-        
-        content.className = 'email-modal';
-        modal.appendChild(content);
-        document.body.appendChild(modal);
-        
-        // Auto-close after 10 seconds
-        setTimeout(() => {
-            if (modal.parentNode) {
-                modal.remove();
-            }
-        }, 10000);
-    }
-    
-    // Create mailto link for fallback method (kept for reference)
-    createMailtoLink(formType, content) {
-        const subject = encodeURIComponent(this.config.subjectPrefixes[formType] || 'Form Submission');
-        const body = encodeURIComponent(content);
-        
-        return `mailto:${this.config.recipientEmail}?subject=${subject}&body=${body}`;
-    }
+
     
     // Update recipient email (for easy configuration changes)
     updateRecipientEmail(newEmail) {

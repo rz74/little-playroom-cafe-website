@@ -206,16 +206,10 @@ if (contactForm) {
         const email = this.querySelector('input[type="email"]').value;
         const phone = this.querySelector('input[type="tel"]').value;
         const message = this.querySelector('textarea').value;
-        const captcha = this.querySelector('input[type="number"]').value;
         
         // Simple validation
         if (!name || !email || !message) {
             showNotification('Please fill in all required fields.', 'error');
-            return;
-        }
-        
-        if (captcha !== '21') {
-            showNotification('Please enter the correct answer to the math problem.', 'error');
             return;
         }
         
