@@ -22,12 +22,13 @@ const EMAIL_CONFIG = {
         website: 'your-website.com' // Update this with your actual domain
     },
     
-    // Email service configuration (using EmailJS for simplicity)
-    emailService: {
-        serviceId: 'YOUR_EMAILJS_SERVICE_ID', // Will be configured later
-        templateId: 'YOUR_EMAILJS_TEMPLATE_ID', // Will be configured later
-        userId: 'YOUR_EMAILJS_USER_ID' // Will be configured later
-    }
+             // Email service configuration (using EmailJS for simplicity)
+         emailService: {
+             serviceId: 'YOUR_EMAILJS_SERVICE_ID', // Will be configured later
+             templateId: 'YOUR_EMAILJS_TEMPLATE_ID', // Will be configured later
+             userId: 'YOUR_EMAILJS_USER_ID', // Will be configured later
+             formspreeFormId: 'YOUR_FORMSPREE_FORM_ID' // Will be configured later
+         }
 };
 
 // Export for use in other files
