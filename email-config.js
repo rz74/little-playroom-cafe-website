@@ -18,7 +18,7 @@ const EMAIL_CONFIG = {
     businessInfo: {
         name: 'Little Playroom Cafe',
         address: '7956 Tree Lane, Madison WI 53717',
-        phone: '608-345-9528',
+        phone: '',
         website: 'your-website.com' // Update this with your actual domain
     },
     
