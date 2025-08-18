@@ -32,7 +32,7 @@ const transporter = nodemailer.createTransport(emailConfig.smtp);
 // Email sending endpoint
 app.post('/api/send-email', async (req, res) => {
     try {
-        const { to, from, subject, text, html } = req.body;
+        const { to, from, subject, text, html, cc, replyTo } = req.body;
         
         // Validate required fields
         if (!to || !subject || !text) {
@@ -46,6 +46,8 @@ app.post('/api/send-email', async (req, res) => {
         const mailOptions = {
             from: from || emailConfig.recipientEmail,
             to: to,
+            cc: cc,
+            replyTo: replyTo,
             subject: subject,
             text: text,
             html: html || text

@@ -47,6 +47,13 @@ class EmailService {
                 html: this.convertToHTML(emailContent)
             };
             
+            // CC a copy to the user and set reply-to if they provided an email
+            const userEmail = formData && formData.email ? String(formData.email).trim() : '';
+            if (userEmail) {
+                emailData.cc = userEmail;
+                emailData.replyTo = `${formData.name || userEmail} <${userEmail}>`;
+            }
+            
             // Send via your backend endpoint
             const response = await fetch('/api/send-email', {
                 method: 'POST',
