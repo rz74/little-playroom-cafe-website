@@ -2,7 +2,7 @@
 
 ## What's New
 
-Your website forms now send emails **directly** to `jiangdl0129@gmail.com` using Gmail SMTP - no more email clients opening!
+Your website forms now send emails **directly** to `playroommadison@gmail.com` using Gmail SMTP - no more email clients opening!
 
 ## Setup Steps
 
@@ -32,7 +32,7 @@ npm start
 1. Open `http://localhost:3000` in your browser
 2. Fill out any form (contact, reservation, waiver, party, partnership)
 3. Submit the form
-4. Check your email at `jiangdl0129@gmail.com`
+4. Check your email at `playroommadison@gmail.com`
 
 ## How It Works Now
 

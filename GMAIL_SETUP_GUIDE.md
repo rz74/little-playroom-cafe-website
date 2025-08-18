@@ -52,7 +52,7 @@ npm start
 1. Open your browser to `http://localhost:3000`
 2. Fill out any form (contact, reservation, waiver, etc.)
 3. Submit the form
-4. Check your email at `jiangdl0129@gmail.com`
+4. Check your email at `playroommadison@gmail.com`
 
 ## Troubleshooting
 

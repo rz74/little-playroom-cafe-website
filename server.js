@@ -14,13 +14,13 @@ app.use(express.static('.')); // Serve static files from current directory
 
 // Email configuration
 const emailConfig = {
-    recipientEmail: 'jiangdl0129@gmail.com',
+    recipientEmail: 'playroommadison@gmail.com',
     smtp: {
         host: 'smtp.gmail.com',
         port: 587,
         secure: false,
         auth: {
-            user: 'jiangdl0129@gmail.com', // Your Gmail address
+            user: 'playroommadison@gmail.com', // Your Gmail address
             pass: process.env.GMAIL_APP_PASSWORD || 'YOUR_APP_PASSWORD' // Set this as environment variable
         }
     }

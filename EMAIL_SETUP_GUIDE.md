@@ -1,10 +1,10 @@
 # 📧 Email Notification System Setup Guide
 
 ## 🎯 Overview
-This system automatically sends email notifications when users submit forms on your website. Instead of opening the user's email client, it sends emails **from `jiangdl0129@gmail.com` to itself** for easy monitoring.
+This system automatically sends email notifications when users submit forms on your website. Instead of opening the user's email client, it sends emails **from `playroommadison@gmail.com` to itself** for easy monitoring.
 
 ## ⚙️ Current Configuration
-- **Recipient Email**: `jiangdl0129@gmail.com` (for testing)
+- **Recipient Email**: `playroommadison@gmail.com` (for testing)
 - **Email Service**: EmailJS (primary) + Formspree (fallback)
 - **Self-Sending**: Emails are sent from your email to itself
 
@@ -15,7 +15,7 @@ Formspree is a free service that handles form submissions and sends emails autom
 
 #### Step 1: Create Formspree Account
 1. Go to [formspree.io](https://formspree.io)
-2. Sign up with your Google account (`jiangdl0129@gmail.com`)
+2. Sign up with your Google account (`playroommadison@gmail.com`)
 3. Create a new form project
 
 #### Step 2: Get Your Form ID
@@ -32,7 +32,7 @@ emailService: {
 
 #### Step 3: Test the System
 1. Submit any form on your website
-2. Check your email (`jiangdl0129@gmail.com`)
+2. Check your email (`playroommadison@gmail.com`)
 3. You should receive an email from yourself with the form data
 
 ### Option 2: EmailJS (Professional Service)
@@ -86,7 +86,7 @@ For complete control, you can set up your own email server or use services like:
 ```
 User submits form → EmailService processes data → 
 EmailJS (primary) or Formspree (fallback) → 
-Email sent from jiangdl0129@gmail.com to itself
+Email sent from playroommadison@gmail.com to itself
 ```
 
 ### 2. Fallback System
@@ -97,8 +97,8 @@ Email sent from jiangdl0129@gmail.com to itself
 ### 3. Self-Sending Logic
 ```javascript
 // All emails are sent FROM and TO the same address
-from: 'jiangdl0129@gmail.com'
-to: 'jiangdl0129@gmail.com'
+from: 'playroommadison@gmail.com'
+to: 'playroommadison@gmail.com'
 ```
 
 ## 📱 Supported Forms

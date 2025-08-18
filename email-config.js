@@ -3,7 +3,7 @@
 
 const EMAIL_CONFIG = {
     // Recipient email address - CHANGE THIS TO YOUR OFFICIAL EMAIL LATER
-    recipientEmail: 'jiangdl0129@gmail.com',
+    recipientEmail: 'playroommadison@gmail.com',
     
     // Email subject prefixes for different forms
     subjectPrefixes: {
@@ -28,13 +28,13 @@ const EMAIL_CONFIG = {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: 'jiangdl0129@gmail.com', // Your Gmail address
+            user: 'playroommadison@gmail.com', // Your Gmail address
             pass: 'YOUR_APP_PASSWORD' // Gmail App Password (not your regular password)
         }
     },
     
     // Sender email (can be the same as recipient)
-    senderEmail: 'jiangdl0129@gmail.com'
+    senderEmail: 'playroommadison@gmail.com'
 };
 
 // Export for use in other files
