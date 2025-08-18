@@ -38,33 +38,43 @@ class EmailService {
         const subject = this.config.subjectPrefixes[formType] || 'Form Submission';
         
         try {
-            // Use Formspree as the email service (free and works with static sites)
-            const formspreeEndpoint = 'https://formspree.io/f/xgvzbbkl'; // You'll need to replace this with your actual Formspree form ID
+            // Create a hidden form and submit it to Formspree
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formspree.io/f/xgvzbbkl';
+            form.style.display = 'none';
             
-            const formDataToSend = new FormData();
-            formDataToSend.append('_subject', subject);
-            formDataToSend.append('_replyto', formData.email || 'no-reply@website.com');
-            formDataToSend.append('_cc', this.config.recipientEmail); // Send to playroommadison@gmail.com
-            formDataToSend.append('message', emailContent);
-            formDataToSend.append('formType', formType);
-            formDataToSend.append('timestamp', new Date().toISOString());
+            // Add form fields
+            const fields = {
+                '_subject': subject,
+                '_replyto': formData.email || 'no-reply@website.com',
+                '_cc': this.config.recipientEmail,
+                'message': emailContent,
+                'formType': formType,
+                'timestamp': new Date().toISOString()
+            };
             
             // Add all form data for reference
             Object.keys(formData).forEach(key => {
-                formDataToSend.append(`formData_${key}`, formData[key] || '');
+                fields[`formData_${key}`] = formData[key] || '';
             });
             
-            const response = await fetch(formspreeEndpoint, {
-                method: 'POST',
-                body: formDataToSend
+            // Create input fields
+            Object.keys(fields).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = fields[key];
+                form.appendChild(input);
             });
             
-            if (response.ok) {
-                console.log('Email sent successfully via Formspree');
-                return { success: true, message: 'Email sent via Formspree' };
-            } else {
-                throw new Error(`Formspree submission failed: ${response.status}`);
-            }
+            // Submit the form
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+            
+            console.log('Email sent successfully via Formspree (form submission)');
+            return { success: true, message: 'Email sent via Formspree' };
             
         } catch (error) {
             console.error('Formspree error:', error);
@@ -214,6 +224,38 @@ ${this.config.businessInfo.address}
 
 📅 Submission Date: ${new Date().toLocaleDateString()}
 ⏰ Submission Time: ${new Date().toLocaleTimeString()}
+
+📋 COMPLETE WAIVER CONTENT AGREED TO:
+
+LITTLE PLAYROOM CAFE LLC
+LITTLE PLAYROOM CAFE
+7956 Tree Lane, Madison WI 53717
+
+LIABILITY WAIVER AND HOLD HARMLESS AGREEMENT
+
+As parent or legal guardian of the child whose name is set forth below (who is referred to herein as the "Participant") and in consideration of the Participant being permitted to participate in the Activities (as defined below) conducted by Little Playroom Cafe LLC ("Little Playroom Cafe"), the Participant and I agree as follows:
+
+1. Activities - The Participant will participate in various activities offered by Little Playroom Cafe (the "Activities"), including but not limited to, the following: use of the toys and equipment in the Little Playroom Cafe.
+
+2. Assumption Of Risk - I understand that the Activities entail the risk of severe bodily injury to the Participant. Injuries that could result will vary, but may include (a) minor injuries such as scratches, bruises and sprains; (b) major injuries such as eye injury or loss of sight, joint or back injuries and concussions; and (c) catastrophic injuries, including paralysis and even death. Notwithstanding these risks and other hazards that may be foreseeable but not specifically identified herein, I, for myself and the Participant and our respective heirs, personal representatives and assigns, understand, acknowledge, and expressly and voluntarily assume all risks and full responsibility for any injury arising out of or related to the Activities.
+
+3. Release, Discharge and Agreement Not To Sue - I, for myself and the Participant and our respective heirs, personal representatives and assigns, do hereby release, discharge and agree not to sue Little Playroom Cafe and its managers, members, employees and/or other agents, for any injury to or death of the Participant arising, directly or indirectly, from participation in the Activities. This release, discharge and covenant not to sue shall relate to any and all claims or legal rights now existing or arising in the future, including claims and legal rights arising out of any negligence of Little Playroom Cafe and/or its managers, members, employees and/or other agents and any other breach of a legal duty arising out of common law, statute, contract or otherwise.
+
+4. Indemnification And Hold Harmless – I agree to indemnify Little Playroom Cafe and hold Little Playroom Cafe harmless from, without limitation, any and all claims, actions, suits, procedures, costs, expenses, damages and liabilities, including attorney's fees and costs, incurred due to claims brought by any third party as a result of or arising out of the Participant's involvement in the Activities and to reimburse Little Playroom Cafe for any such costs, expenses and fees as they are incurred.
+
+5. Security Cameras - I understand that security cameras installed within and around the facility are for the safety of all participants and may be referenced should any incident or injury occur.
+
+6. COVID-19 Warning - An inherited risk of exposure to Covid-19 exists in any public place where people are present. COVID-19 is an extremely contagious disease that can lead to severe illness and death. According to the Center of Disease Control and Prevention, senior citizens and guests with underlying medical conditions are at higher risk for contracting the disease. Participation includes possible exposure to an illness from infectious disease including but not limited to Covid-19. By visiting Little Playroom Cafe, you assume all risks related to Covid-19 and other infectious disease.
+
+7. Personal property - I acknowledge that all personal items, left, or forgotten at Little Playroom Cafe facility, is left at my own risk and the company is not responsible for any stolen, damaged, or forgotten items.
+
+8. "As Is Condition" - I acknowledge that the Little Playroom Cafe makes no representation as to the condition of the play structure or any toys, and/or equipment used within the facility. I acknowledge that I, and any participant(s) in my care, will use the facility and any equipment in its "As Is Condition" and assume all known and unknown risks associated to the Participant(s) in any activities at the facility, including but not limited to: falls, slips, impact with toys, equipment or other children.
+
+9. Parent Or Legal Guardian Certification And Consent - I hereby certify that I am the parent or legal guardian of the Participant whose name appears below, and I have authority to waive rights on behalf of the minor Participant. I have read and I understand all of the provisions of this document and the risks of the Activities. I understand that the Activities could cause injury and even death. I acknowledge that I have read and understand the terms of this document and I am freely and voluntarily signing this document.
+
+10. Severability - This document is intended to be as broad and inclusive as is permitted by the laws of the State of Wisconsin and if any provision (or a part of any provision) contained herein is deemed to be invalid, the balance of the provisions shall continue in full legal force and effect, notwithstanding such invalidity.
+
+I HAVE READ THIS AGREEMENT THOROUGHLY. I UNDERSTAND THAT BY SIGNING THIS AGREEMENT, I AM WAIVING CERTAIN LEGAL RIGHTS, WHICH I, THE PARTICIPANT(S), AND OUR HEIRS, ASSIGNEES, EXECUTORS, ADMINISTRATORS, AND PERSONAL REPRESENTATIVES, HAVE AGAINST THE RELEASEES, INCLUDING THE RIGHT TO SUE. I HAVE BEEN AFFORDED THE OPPORTUNITY TO REFUSE THE PARTICIPANT(S) PARTICIPATION IN THE ACTIVITIES, BUT I HAVE FREELY AND VOLUNTARILY ELECTED TO SIGN THIS AGREEMENT.
 
 ---
 Sent from Little Playroom Cafe Website
