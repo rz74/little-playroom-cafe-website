@@ -1,88 +1,129 @@
 // Email Service for Form Submissions
-// Handles sending email notifications directly via SMTP
+// Handles sending email notifications via serverless functions
 
 class EmailService {
     constructor() {
         this.config = window.EMAIL_CONFIG;
-        this.isInitialized = false;
-        this.init();
-    }
-    
-    async init() {
-        try {
-            // Initialize direct email service
-            this.isInitialized = true;
-            console.log('Direct email service initialized successfully');
-        } catch (error) {
-            console.error('Failed to initialize email service:', error);
-        }
+        this.isInitialized = true;
+        console.log('Email service initialized for static website');
     }
     
     // Send email notification for any form type
     async sendFormNotification(formType, formData, additionalData = {}) {
         try {
-            if (this.isInitialized) {
-                return await this.sendViaDirectSMTP(formType, formData, additionalData);
-            } else {
-                throw new Error('Email service not initialized');
-            }
+            return await this.sendViaServerless(formType, formData, additionalData);
         } catch (error) {
             console.error('Failed to send email notification:', error);
-            throw error;
+            // Fallback to showing email content to user
+            const emailContent = this.buildEmailContent(formType, formData, additionalData);
+            this.showEmailContentToUser(formType, emailContent);
+            return { success: false, message: 'Email service unavailable, showing content to user' };
         }
     }
     
-    // Send via Formspree (works with static websites)
-    async sendViaDirectSMTP(formType, formData, additionalData) {
+    // Send via serverless function (works with static websites)
+    async sendViaServerless(formType, formData, additionalData) {
         const emailContent = this.buildEmailContent(formType, formData, additionalData);
         const subject = this.config.subjectPrefixes[formType] || 'Form Submission';
         
         try {
-            // Create a hidden form and submit it to Formspree
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://formspree.io/f/xgvzbbkl';
-            form.style.display = 'none';
+            // Try multiple serverless email services
             
-            // Add form fields
-            const fields = {
-                '_subject': subject,
-                '_replyto': formData.email || 'no-reply@website.com',
-                '_cc': this.config.recipientEmail,
-                'message': emailContent,
-                'formType': formType,
-                'timestamp': new Date().toISOString()
-            };
+            // Option 1: Netlify Functions (if on Netlify)
+            if (window.location.hostname.includes('netlify.app') || window.location.hostname.includes('your-domain.com')) {
+                return await this.sendViaNetlifyFunction(formType, formData, emailContent, subject);
+            }
             
-            // Add all form data for reference
-            Object.keys(formData).forEach(key => {
-                fields[`formData_${key}`] = formData[key] || '';
-            });
+            // Option 2: Vercel Functions (if on Vercel)
+            if (window.location.hostname.includes('vercel.app') || window.location.hostname.includes('your-domain.com')) {
+                return await this.sendViaVercelFunction(formType, formData, emailContent, subject);
+            }
             
-            // Create input fields
-            Object.keys(fields).forEach(key => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = fields[key];
-                form.appendChild(input);
-            });
-            
-            // Submit the form
-            document.body.appendChild(form);
-            form.submit();
-            document.body.removeChild(form);
-            
-            console.log('Email sent successfully via Formspree (form submission)');
-            return { success: true, message: 'Email sent via Formspree' };
+            // Option 3: Web3Forms (free service for static sites)
+            return await this.sendViaWeb3Forms(formType, formData, emailContent, subject);
             
         } catch (error) {
-            console.error('Formspree error:', error);
-            
-            // Fallback: Show email content to user
-            this.showEmailContentToUser(formType, emailContent);
-            
-            return { success: false, message: 'Email service unavailable, showing content to user' };
+            console.error('Serverless email error:', error);
+            throw error;
+        }
+    }
+    
+    // Send via Netlify Functions
+    async sendViaNetlifyFunction(formType, formData, emailContent, subject) {
+        const response = await fetch('/.netlify/functions/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                to: this.config.recipientEmail,
+                from: formData.email || 'no-reply@website.com',
+                subject: subject,
+                content: emailContent,
+                formType: formType,
+                formData: formData
+            })
+        });
+        
+        if (response.ok) {
+            console.log('Email sent successfully via Netlify Functions');
+            return { success: true, message: 'Email sent via Netlify Functions' };
+        } else {
+            throw new Error(`Netlify function failed: ${response.status}`);
+        }
+    }
+    
+    // Send via Vercel Functions
+    async sendViaVercelFunction(formType, formData, emailContent, subject) {
+        const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                to: this.config.recipientEmail,
+                from: formData.email || 'no-reply@website.com',
+                subject: subject,
+                content: emailContent,
+                formType: formType,
+                formData: formData
+            })
+        });
+        
+        if (response.ok) {
+            console.log('Email sent successfully via Vercel Functions');
+            return { success: true, message: 'Email sent via Vercel Functions' };
+        } else {
+            throw new Error(`Vercel function failed: ${response.status}`);
+        }
+    }
+    
+    // Send via Web3Forms (free service for static sites)
+    async sendViaWeb3Forms(formType, formData, emailContent, subject) {
+        const formDataToSend = new FormData();
+        formDataToSend.append('access_key', this.config.web3forms.accessKey);
+        formDataToSend.append('subject', subject);
+        formDataToSend.append('from_name', formData.name || 'Website Visitor');
+        formDataToSend.append('from_email', formData.email || 'no-reply@website.com');
+        formDataToSend.append('message', emailContent);
+        formDataToSend.append('form_type', formType);
+        formDataToSend.append('timestamp', new Date().toISOString());
+        
+        // Add all form data for reference
+        Object.keys(formData).forEach(key => {
+            formDataToSend.append(`formData_${key}`, formData[key] || '');
+        });
+        
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formDataToSend
+        });
+        
+        if (response.ok) {
+            console.log('Email sent successfully via Web3Forms');
+            return { success: true, message: 'Email sent via Web3Forms' };
+        } else {
+            throw new Error(`Web3Forms failed: ${response.status}`);
         }
     }
     

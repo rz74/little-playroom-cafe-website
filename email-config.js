@@ -22,19 +22,21 @@ const EMAIL_CONFIG = {
         website: 'your-website.com' // Update this with your actual domain
     },
     
-    // SMTP configuration for direct email sending
-    smtp: {
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: 'playroommadison@gmail.com', // Your Gmail address
-            pass: 'YOUR_APP_PASSWORD' // Gmail App Password (not your regular password)
-        }
-    },
-    
-    // Sender email (can be the same as recipient)
-    senderEmail: 'playroommadison@gmail.com'
+         // Web3Forms configuration (free service for static websites)
+     web3forms: {
+         accessKey: 'c188169b-b3e3-4bad-94a5-ce530e72e4ce'
+     },
+     
+     // SMTP configuration for serverless functions
+     smtp: {
+         host: 'smtp.gmail.com',
+         port: 587,
+         secure: false,
+         auth: {
+             user: 'playroommadison@gmail.com',
+             pass: 'Felix0626@'// Password
+         }
+     }
 };
 
 // Export for use in other files
