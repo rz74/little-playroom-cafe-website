@@ -142,7 +142,7 @@ ${formData.notes || 'No additional notes'}
 ---
 Sent from Little Playroom Cafe Website
 ${this.config.businessInfo.address}
-${this.config.businessInfo.phone}
+ 
         `.trim();
     }
     
@@ -170,7 +170,7 @@ ${formData.notes || 'No special requests'}
 ---
 Sent from Little Playroom Cafe Website
 ${this.config.businessInfo.address}
-${this.config.businessInfo.phone}
+ 
         `.trim();
     }
     
@@ -192,7 +192,7 @@ ${formData.message || 'No message provided'}
 ---
 Sent from Little Playroom Cafe Website
 ${this.config.businessInfo.address}
-${this.config.businessInfo.phone}
+ 
         `.trim();
     }
     
@@ -219,7 +219,7 @@ ${this.config.businessInfo.phone}
 ---
 Sent from Little Playroom Cafe Website
 ${this.config.businessInfo.address}
-${this.config.businessInfo.phone}
+ 
         `.trim();
     }
     
@@ -246,7 +246,7 @@ ${formData.proposal || 'No proposal provided'}
 ---
 Sent from Little Playroom Cafe Website
 ${this.config.businessInfo.address}
-${this.config.businessInfo.phone}
+ 
         `.trim();
     }
     
@@ -266,7 +266,7 @@ ${JSON.stringify(formData, null, 2)}
 ---
 Sent from Little Playroom Cafe Website
 ${this.config.businessInfo.address}
-${this.config.businessInfo.phone}
+ 
         `.trim();
     }
     
