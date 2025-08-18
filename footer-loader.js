@@ -90,7 +90,7 @@ class FooterLoader {
                             <h4>Contact Info</h4>
                             <p><i class="fas fa-map-marker-alt"></i> 7956 Tree Lane, Madison, WI 53717</p>
                             <p><i class="fas fa-phone"></i> (608) 345-9528</p>
-                            <p><i class="fas fa-envelope"></i> playroommadison@gmail.com</p>
+                            <p><i class="fas fa-envelope"></i> jiangdl0129@gmail.com</p>
                         </div>
                         <div class="footer-section">
                             <h4>Hours</h4>

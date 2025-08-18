@@ -22,12 +22,19 @@ const EMAIL_CONFIG = {
         website: 'your-website.com' // Update this with your actual domain
     },
     
-    // Email service configuration (using EmailJS for simplicity)
-    emailService: {
-        serviceId: 'YOUR_EMAILJS_SERVICE_ID', // Will be configured later
-        templateId: 'YOUR_EMAILJS_TEMPLATE_ID', // Will be configured later
-        userId: 'YOUR_EMAILJS_USER_ID' // Will be configured later
-    }
+    // SMTP configuration for direct email sending
+    smtp: {
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: 'jiangdl0129@gmail.com', // Your Gmail address
+            pass: 'YOUR_APP_PASSWORD' // Gmail App Password (not your regular password)
+        }
+    },
+    
+    // Sender email (can be the same as recipient)
+    senderEmail: 'jiangdl0129@gmail.com'
 };
 
 // Export for use in other files

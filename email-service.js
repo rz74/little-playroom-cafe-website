@@ -1,5 +1,5 @@
 // Email Service for Form Submissions
-// Handles sending email notifications for all forms
+// Handles sending email notifications directly via SMTP
 
 class EmailService {
     constructor() {
@@ -10,46 +10,21 @@ class EmailService {
     
     async init() {
         try {
-            // Load EmailJS if not already loaded
-            if (!window.emailjs) {
-                await this.loadEmailJS();
-            }
-            
-            // Initialize EmailJS
-            if (window.emailjs) {
-                window.emailjs.init(this.config.emailService.userId);
-                this.isInitialized = true;
-                console.log('EmailJS initialized successfully');
-            } else {
-                console.warn('EmailJS not available, using fallback method');
-            }
+            // Initialize direct email service
+            this.isInitialized = true;
+            console.log('Direct email service initialized successfully');
         } catch (error) {
             console.error('Failed to initialize email service:', error);
         }
     }
     
-    async loadEmailJS() {
-        return new Promise((resolve, reject) => {
-            if (window.emailjs) {
-                resolve();
-                return;
-            }
-            
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-            script.onload = () => resolve();
-            script.onerror = reject;
-            document.head.appendChild(script);
-        });
-    }
-    
     // Send email notification for any form type
     async sendFormNotification(formType, formData, additionalData = {}) {
         try {
-            if (this.isInitialized && window.emailjs) {
-                return await this.sendViaEmailJS(formType, formData, additionalData);
+            if (this.isInitialized) {
+                return await this.sendViaDirectSMTP(formType, formData, additionalData);
             } else {
-                return await this.sendViaFallback(formType, formData, additionalData);
+                throw new Error('Email service not initialized');
             }
         } catch (error) {
             console.error('Failed to send email notification:', error);
@@ -57,57 +32,52 @@ class EmailService {
         }
     }
     
-    // Send via EmailJS (primary method)
-    async sendViaEmailJS(formType, formData, additionalData) {
-        const templateParams = this.buildTemplateParams(formType, formData, additionalData);
-        
-        return new Promise((resolve, reject) => {
-            window.emailjs.send(
-                this.config.emailService.serviceId,
-                this.config.emailService.templateId,
-                templateParams
-            ).then(
-                (response) => {
-                    console.log('Email sent successfully:', response);
-                    resolve(response);
-                },
-                (error) => {
-                    console.error('EmailJS error:', error);
-                    reject(error);
-                }
-            );
-        });
-    }
-    
-    // Fallback method using a simple form submission
-    async sendViaFallback(formType, formData, additionalData) {
+    // Send via direct SMTP connection
+    async sendViaDirectSMTP(formType, formData, additionalData) {
         const emailContent = this.buildEmailContent(formType, formData, additionalData);
+        const subject = this.config.subjectPrefixes[formType] || 'Form Submission';
         
-        // Create a temporary form to send email via mailto
-        const mailtoLink = this.createMailtoLink(formType, emailContent);
-        
-        // Open email client
-        window.open(mailtoLink, '_blank');
-        
-        return { status: 'opened_email_client' };
+        try {
+            // Create the email data
+            const emailData = {
+                to: this.config.recipientEmail,
+                from: this.config.senderEmail || this.config.recipientEmail,
+                subject: subject,
+                text: emailContent,
+                html: this.convertToHTML(emailContent)
+            };
+            
+            // Send via your backend endpoint
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(emailData)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            console.log('Email sent successfully via direct SMTP:', result);
+            return result;
+            
+        } catch (error) {
+            console.error('Direct SMTP error:', error);
+            throw error;
+        }
     }
     
-    // Build template parameters for EmailJS
-    buildTemplateParams(formType, formData, additionalData) {
-        const subject = this.config.subjectPrefixes[formType] || 'Form Submission';
-        const content = this.buildEmailContent(formType, formData, additionalData);
-        
-        return {
-            to_email: this.config.recipientEmail,
-            from_name: formData.name || 'Website Visitor',
-            from_email: formData.email || 'no-reply@website.com',
-            subject: subject,
-            message: content,
-            form_type: formType,
-            business_name: this.config.businessInfo.name,
-            business_address: this.config.businessInfo.address,
-            business_phone: this.config.businessInfo.phone
-        };
+
+    
+    // Convert plain text to HTML format
+    convertToHTML(text) {
+        return text
+            .replace(/\n/g, '<br>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>');
     }
     
     // Build email content based on form type
@@ -293,13 +263,7 @@ ${this.config.businessInfo.phone}
         `.trim();
     }
     
-    // Create mailto link for fallback method
-    createMailtoLink(formType, content) {
-        const subject = encodeURIComponent(this.config.subjectPrefixes[formType] || 'Form Submission');
-        const body = encodeURIComponent(content);
-        
-        return `mailto:${this.config.recipientEmail}?subject=${subject}&body=${body}`;
-    }
+
     
     // Update recipient email (for easy configuration changes)
     updateRecipientEmail(newEmail) {
