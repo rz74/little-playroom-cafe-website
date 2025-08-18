@@ -32,48 +32,47 @@ class EmailService {
         }
     }
     
-    // Send via direct SMTP connection
+    // Send via Formspree (works with static websites)
     async sendViaDirectSMTP(formType, formData, additionalData) {
         const emailContent = this.buildEmailContent(formType, formData, additionalData);
         const subject = this.config.subjectPrefixes[formType] || 'Form Submission';
         
         try {
-            // Create the email data
-            const emailData = {
-                to: this.config.recipientEmail,
-                from: this.config.senderEmail || this.config.recipientEmail,
-                subject: subject,
-                text: emailContent,
-                html: this.convertToHTML(emailContent)
-            };
+            // Use Formspree as the email service (free and works with static sites)
+            const formspreeEndpoint = 'https://formspree.io/f/xgvzbbkl'; // You'll need to replace this with your actual Formspree form ID
             
-            // CC a copy to the user and set reply-to if they provided an email
-            const userEmail = formData && formData.email ? String(formData.email).trim() : '';
-            if (userEmail) {
-                emailData.cc = userEmail;
-                emailData.replyTo = `${formData.name || userEmail} <${userEmail}>`;
-            }
+            const formDataToSend = new FormData();
+            formDataToSend.append('_subject', subject);
+            formDataToSend.append('_replyto', formData.email || 'no-reply@website.com');
+            formDataToSend.append('_cc', this.config.recipientEmail); // Send to playroommadison@gmail.com
+            formDataToSend.append('message', emailContent);
+            formDataToSend.append('formType', formType);
+            formDataToSend.append('timestamp', new Date().toISOString());
             
-            // Send via your backend endpoint
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(emailData)
+            // Add all form data for reference
+            Object.keys(formData).forEach(key => {
+                formDataToSend.append(`formData_${key}`, formData[key] || '');
             });
             
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            const response = await fetch(formspreeEndpoint, {
+                method: 'POST',
+                body: formDataToSend
+            });
+            
+            if (response.ok) {
+                console.log('Email sent successfully via Formspree');
+                return { success: true, message: 'Email sent via Formspree' };
+            } else {
+                throw new Error(`Formspree submission failed: ${response.status}`);
             }
             
-            const result = await response.json();
-            console.log('Email sent successfully via direct SMTP:', result);
-            return result;
-            
         } catch (error) {
-            console.error('Direct SMTP error:', error);
-            throw error;
+            console.error('Formspree error:', error);
+            
+            // Fallback: Show email content to user
+            this.showEmailContentToUser(formType, emailContent);
+            
+            return { success: false, message: 'Email service unavailable, showing content to user' };
         }
     }
     
@@ -271,6 +270,70 @@ ${this.config.businessInfo.address}
     }
     
 
+    
+    // Show email content to user if all methods fail
+    showEmailContentToUser(formType, emailContent) {
+        // Create a modal or alert showing the email content
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        `;
+        
+        const content = document.createElement('div');
+        content.style.cssText = `
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        `;
+        
+        content.innerHTML = `
+            <h3 style="margin: 0 0 20px 0; color: #333;">📧 Email Content Generated</h3>
+            <p style="margin: 0 0 15px 0; color: #666;">
+                The form was submitted successfully, but we couldn't send the email automatically. 
+                Here's the email content that would have been sent to ${this.config.recipientEmail}:
+            </p>
+            <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0; font-family: monospace; white-space: pre-wrap; font-size: 12px; max-height: 300px; overflow-y: auto;">
+                ${emailContent}
+            </div>
+            <p style="margin: 15px 0; color: #666; font-size: 14px;">
+                <strong>Note:</strong> This email would be sent from ${this.config.recipientEmail} to itself.
+            </p>
+            <button onclick="this.closest('.email-modal').remove()" style="
+                background: #ff6b6b;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            ">Close</button>
+        `;
+        
+        content.className = 'email-modal';
+        modal.appendChild(content);
+        document.body.appendChild(modal);
+        
+        // Auto-close after 10 seconds
+        setTimeout(() => {
+            if (modal.parentNode) {
+                modal.remove();
+            }
+        }, 10000);
+    }
     
     // Update recipient email (for easy configuration changes)
     updateRecipientEmail(newEmail) {
