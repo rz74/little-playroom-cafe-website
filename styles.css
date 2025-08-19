@@ -25,11 +25,11 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(245, 245, 245, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 50px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(245, 245, 245, 0.2);
+    border: 1px solid rgba(245, 245, 245, 0.3);
     z-index: 1000;
     transition: all 0.3s ease;
     padding: 0 40px;
@@ -269,6 +269,64 @@ body {
     background: #ff5252;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Announcement Section */
+.announcement-section {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.announcement-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.announcement-icon {
+    font-size: 1.5rem;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.announcement-text h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.announcement-text p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive announcement */
+@media (max-width: 768px) {
+    .announcement-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .announcement-text h3 {
+        font-size: 1.1rem;
+    }
+    
+    .announcement-text p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Quick Navigation */
@@ -1008,6 +1066,37 @@ body {
     background: #ff6b6b;
     color: white;
     transform: translateY(-2px);
+}
+
+/* Social media button colors */
+.social-link.facebook {
+    background: #1877f2;
+    color: white;
+}
+
+.social-link.facebook:hover {
+    background: #166fe5;
+    color: white;
+}
+
+.social-link.instagram {
+    background: #e4405f;
+    color: white;
+}
+
+.social-link.instagram:hover {
+    background: #d63384;
+    color: white;
+}
+
+.social-link.tiktok {
+    background: #000000;
+    color: white;
+}
+
+.social-link.tiktok:hover {
+    background: #333333;
+    color: white;
 }
 
 .map-section {
@@ -2728,6 +2817,13 @@ html {
     .waiver-content {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 2rem 0.5rem;
+    }
+    
+    .waiver-form-container {
+        max-width: 95%;
+        margin: 0 auto;
+        padding: 0 0.5rem;
     }
     
     .gallery-grid {

@@ -89,15 +89,117 @@ function scrollToSection(sectionId) {
     }
 }
 
+// Announcement functionality
+function initAnnouncement() {
+    const announcementSection = document.getElementById('announcement-section');
+    const announcementTitle = document.getElementById('announcement-title');
+    const announcementMessage = document.getElementById('announcement-message');
+    
+    // Check if we're on the home page
+    if (announcementSection && announcementTitle && announcementMessage) {
+        // Get announcement from localStorage or use default
+        const savedTitle = localStorage.getItem('announcementTitle');
+        const savedMessage = localStorage.getItem('announcementMessage');
+        const isVisible = localStorage.getItem('announcementVisible') === 'true';
+        
+        if (savedTitle && savedMessage && isVisible) {
+            announcementTitle.textContent = savedTitle;
+            announcementMessage.textContent = savedMessage;
+            announcementSection.style.display = 'block';
+        }
+        
+        // Add admin controls (only visible to owner)
+        if (window.location.search.includes('admin=true')) {
+            const adminControls = document.createElement('div');
+            adminControls.className = 'admin-controls';
+            adminControls.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: white;
+                padding: 1rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                z-index: 1001;
+                max-width: 300px;
+            `;
+            
+            adminControls.innerHTML = `
+                <h4 style="margin-bottom: 1rem;">Announcement Controls</h4>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">Title:</label>
+                    <input type="text" id="admin-title" value="${savedTitle || 'Important Notice'}" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">Message:</label>
+                    <textarea id="admin-message" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; height: 80px;">${savedMessage || 'Currently closed for maintenance. We apologize for any inconvenience.'}</textarea>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="admin-visible" ${isVisible ? 'checked' : ''} style="margin-right: 0.5rem;">
+                        Show announcement
+                    </label>
+                </div>
+                <button onclick="saveAnnouncement()" style="background: #ff6b6b; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-right: 0.5rem;">Save</button>
+                <button onclick="clearAnnouncement()" style="background: #666; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Clear</button>
+            `;
+            
+            document.body.appendChild(adminControls);
+        }
+    }
+}
+
+// Save announcement settings
+function saveAnnouncement() {
+    const title = document.getElementById('admin-title').value;
+    const message = document.getElementById('admin-message').value;
+    const visible = document.getElementById('admin-visible').checked;
+    
+    localStorage.setItem('announcementTitle', title);
+    localStorage.setItem('announcementMessage', message);
+    localStorage.setItem('announcementVisible', visible);
+    
+    // Update the announcement on the page
+    const announcementSection = document.getElementById('announcement-section');
+    const announcementTitle = document.getElementById('announcement-title');
+    const announcementMessage = document.getElementById('announcement-message');
+    
+    if (announcementSection && announcementTitle && announcementMessage) {
+        if (visible) {
+            announcementTitle.textContent = title;
+            announcementMessage.textContent = message;
+            announcementSection.style.display = 'block';
+        } else {
+            announcementSection.style.display = 'none';
+        }
+    }
+    
+    alert('Announcement saved!');
+}
+
+// Clear announcement
+function clearAnnouncement() {
+    localStorage.removeItem('announcementTitle');
+    localStorage.removeItem('announcementMessage');
+    localStorage.removeItem('announcementVisible');
+    
+    const announcementSection = document.getElementById('announcement-section');
+    if (announcementSection) {
+        announcementSection.style.display = 'none';
+    }
+    
+    alert('Announcement cleared!');
+}
+
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.background = 'rgba(245, 245, 245, 0.98)';
         navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.15)';
         navbar.style.transform = 'translateX(-50%) scale(0.98)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = 'rgba(245, 245, 245, 0.95)';
         navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
         navbar.style.transform = 'translateX(-50%) scale(1)';
     }
@@ -748,6 +850,9 @@ function initReservationCalendar() {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile navigation
     initMobileNav();
+    
+    // Initialize announcement functionality
+    initAnnouncement();
     
     // Initialize smooth scrolling
     initSmoothScrolling();
