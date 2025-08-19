@@ -2374,9 +2374,9 @@ html {
     flex:1;
     align-items: right;
 }
-.checkbox-group input[type="checkbox"] {
+/* .checkbox-group input[type="checkbox"] {
     margin-right: 0.5rem;
-}
+} */
 
 /* ===== RULES PAGE STYLES ===== */
 .rules-hero {
