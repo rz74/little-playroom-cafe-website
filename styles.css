@@ -85,7 +85,8 @@ body {
 }
 
 .nav-logo h2 {
-    color: #ff6b6b;
+    /* color: #ff6b6b; */
+    color: #ffb13b;
     font-weight: 700;
     font-size: 1rem;
 }
@@ -105,7 +106,8 @@ body {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: #ff6b6b;
+    /* color: #ff6b6b; */
+    color: #ffb13b;
 }
 
 .hamburger {
@@ -147,7 +149,8 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%,#4b5dac 25%, #602f91 50%, #764ba2 100%);
+    /* background: linear-gradient(135deg, #667eea 0%,#4b5dac 25%, #602f91 50%, #764ba2 100%); */
+    background: #d1f7ff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,6 +245,7 @@ body {
     height: 80%;
     overflow: hidden;
     border-radius: 400px 10px 10px 400px;
+    box-shadow: 0 300px 0px #77c1b9;
 }
 
 .hero-image-2 img {
@@ -253,7 +257,8 @@ body {
 }
 
 .cta-button {
-    background: #ff6b6b;
+    /* background: #ff6b6b; */
+    background: #ffb13b;
     color: white;
     border: none;
     padding: 1rem 2rem;
