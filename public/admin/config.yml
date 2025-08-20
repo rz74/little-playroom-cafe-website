@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: darle/little-playroom-cafe-website
+  branch: main
+publish_mode: simple
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "announcement"
+    label: "Announcement"
+    files:
+      - file: "data/announcement.json"
+        label: "Site Announcement"
+        name: "announce"
+        fields:
+          - { label: "Enabled", name: "enabled", widget: "boolean", default: false }
+          - { label: "Title", name: "title", widget: "string", default: "Important Notice" }
+          - { label: "Message", name: "message", widget: "text", hint: "Short text; supports line breaks", default: "Currently closed for maintenance. We apologize for any inconvenience." }
+          - { label: "Severity", name: "severity", widget: "select", options: ["info","success","warning","error"], default: "warning" }
+          - { label: "Start Date (optional)", name: "start", widget: "datetime", required: false, format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+          - { label: "End Date (optional)", name: "end", widget: "datetime", required: false, format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm" }

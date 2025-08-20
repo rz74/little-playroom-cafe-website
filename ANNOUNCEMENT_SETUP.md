@@ -1,44 +1,107 @@
-# Announcement Feature Setup Guide
+# Netlify CMS Announcement Setup Guide
 
-## How to Use the Customizable Announcement Feature
+## Overview
+The website now uses Netlify CMS (Decap CMS) to manage announcements. This provides a user-friendly admin interface that allows the owner to update announcements without touching any code.
 
-The website now includes a customizable announcement section that allows the owner to display important messages on the home page.
+## How to Set Up Netlify CMS
 
-### To Set Up an Announcement:
+### Step 1: Enable Netlify Identity
+1. Go to your Netlify dashboard
+2. Navigate to **Site settings** → **Identity**
+3. Click **Enable Identity**
+4. Go to **Identity** → **Services** → **Enable Git Gateway**
 
-1. **Access Admin Controls**: Add `?admin=true` to the end of your home page URL
-   - Example: `https://yourwebsite.com/index.html?admin=true`
+### Step 2: Invite Users
+1. In **Identity** → **Invite users**
+2. Enter the owner's email address
+3. They will receive an invitation email with a magic link
 
-2. **Configure Your Announcement**:
-   - **Title**: Enter a short title for your announcement (e.g., "Important Notice", "Holiday Hours", etc.)
-   - **Message**: Enter your announcement message (e.g., "Currently closed for maintenance", "Special holiday hours", etc.)
-   - **Show/Hide**: Check the box to show the announcement, uncheck to hide it
+### Step 3: Access the Admin Panel
+1. The owner clicks the invitation link in their email
+2. They can then access the admin panel at: `https://yourdomain.com/admin`
+3. Recommend adding this to their phone's home screen for easy access
 
-3. **Save Your Changes**: Click the "Save" button to apply your announcement
+## How to Update Announcements
 
-4. **Clear Announcement**: Use the "Clear" button to remove the announcement completely
+### Using the Admin Panel:
+1. **Login**: Click the invitation link or go to `/admin`
+2. **Edit**: Click on "Announcement" → "Site Announcement"
+3. **Configure**:
+   - **Enabled**: Toggle to show/hide the announcement
+   - **Title**: The announcement title
+   - **Message**: The announcement text (supports line breaks)
+   - **Severity**: Choose the color/style (info, success, warning, error)
+   - **Start/End Date**: Optional scheduling (leave empty for immediate)
+4. **Publish**: Click "Publish" in the top right
+5. **Wait**: Netlify will automatically deploy the changes (1-2 minutes)
 
-### Examples of Announcements:
+### Announcement Types:
+- **Info** (Blue): General information
+- **Success** (Green): Positive news, confirmations
+- **Warning** (Orange): Important notices, temporary changes
+- **Error** (Red): Critical issues, closures
 
-- **Maintenance**: "Currently closed for maintenance. We apologize for any inconvenience."
-- **Holiday Hours**: "Special holiday hours: Open 10 AM - 6 PM on Christmas Eve"
-- **Weather**: "Closed today due to inclement weather. Stay safe!"
-- **Special Event**: "Join us this Saturday for our special story time event!"
+## Example Announcements
 
-### Features:
+### Temporary Closure:
+```
+Title: "Temporary Closure"
+Message: "We will be closed for renovations from March 15-20. We apologize for any inconvenience."
+Severity: Warning
+```
 
-- ✅ **Persistent**: Announcements are saved and will appear every time someone visits the home page
-- ✅ **Easy to Update**: Simply access the admin controls to change or remove announcements
-- ✅ **Responsive**: Works on all devices (desktop, tablet, mobile)
-- ✅ **Professional Design**: Matches the website's design with a red gradient background and animated icon
+### Special Hours:
+```
+Title: "Special Holiday Hours"
+Message: "This weekend we're open extended hours:\nFriday 9AM-8PM\nSaturday 8AM-9PM!"
+Severity: Info
+```
 
-### Security Note:
+### Success Message:
+```
+Title: "New Menu Items Available!"
+Message: "We've added healthy smoothies and organic snacks to our menu. Come try them!"
+Severity: Success
+```
 
-The admin controls are only visible when you add `?admin=true` to the URL. Regular visitors will not see these controls.
+## Technical Details
 
-### Technical Details:
+### Files Created:
+- `/public/admin/index.html` - Admin interface
+- `/public/admin/config.yml` - CMS configuration
+- `/data/announcement.json` - Announcement data
+- `/js/announcement.js` - Frontend loader
 
-- Announcements are stored in the browser's localStorage
-- The announcement section appears between the hero section and quick navigation
-- The feature includes a pulsing bullhorn icon for attention
-- Mobile-responsive design with appropriate text sizing
+### Security:
+- Only the `/data/announcement.json` file is editable
+- Users cannot access other parts of the codebase
+- All changes are version controlled in Git
+
+### Deployment:
+- Changes are automatically deployed when published
+- No manual code editing required
+- Works perfectly with static hosting
+
+## Troubleshooting
+
+### If the admin panel doesn't load:
+1. Check that Netlify Identity is enabled
+2. Verify Git Gateway is enabled
+3. Ensure the user has been invited and accepted
+
+### If announcements don't appear:
+1. Check that "Enabled" is set to true
+2. Verify the start/end dates (if set)
+3. Clear browser cache and refresh
+
+### If changes don't deploy:
+1. Check Netlify build logs
+2. Verify the GitHub repository connection
+3. Ensure the user has proper permissions
+
+## Current Status
+The announcement system is currently **disabled** by default. To show an announcement, the owner needs to:
+1. Go to `/admin`
+2. Enable the announcement
+3. Set the title and message
+4. Click Publish

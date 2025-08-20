@@ -273,11 +273,31 @@ body {
 
 /* Announcement Section */
 .announcement-section {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
     color: white;
     padding: 1.5rem 0;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+}
+
+/* Info style (blue) */
+.announcement-section.announcement-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Success style (green) */
+.announcement-section.announcement-success {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+/* Warning style (orange) */
+.announcement-section.announcement-warning {
+    background: linear-gradient(135deg, #ff9800 0%, #ff8e53 100%);
+}
+
+/* Error style (red) */
+.announcement-section.announcement-error {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
 }
 
 .announcement-content {

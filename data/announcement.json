@@ -1,0 +1,8 @@
+{
+  "enabled": false,
+  "title": "Important Notice",
+  "message": "Currently closed for maintenance. We apologize for any inconvenience.",
+  "severity": "warning",
+  "start": "",
+  "end": ""
+}
