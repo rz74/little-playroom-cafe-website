@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Loader Demo - Little Playroom Cafe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .demo-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+        }
+        .step {
+            background: #d1ecf1;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Content Loader System Demo</h1>
+    
+    <div class="demo-section">
+        <h2>How It Works</h2>
+        <p>This system automatically loads content from your <code>content/website-content.txt</code> file and populates your HTML pages dynamically. Here's how:</p>
+        
+        <div class="step">
+            <h3>Step 1: Edit Content File</h3>
+            <p>Make changes to <code>content/website-content.txt</code></p>
+            <div class="code-block">
+# Example: Change the hero title
+HERO SECTION:
+- Main title: "LITTLE PLAYROOM CAFÉ - NOW OPEN!"
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3>Step 2: HTML Uses Data Attributes</h3>
+            <p>Your HTML elements have <code>data-content</code> attributes that the system recognizes:</p>
+            <div class="code-block">
+&lt;h1 data-content="main_title"&gt;LITTLE PLAYROOM CAFÉ&lt;/h1&gt;
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3>Step 3: JavaScript Automatically Updates</h3>
+            <p>The <code>content-loader.js</code> script reads the content file and updates all matching elements.</p>
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Benefits</h2>
+        <ul>
+            <li><strong>Single Source of Truth:</strong> All content in one file</li>
+            <li><strong>Easy Updates:</strong> No need to edit HTML files</li>
+            <li><strong>Consistent Content:</strong> Changes apply across all pages</li>
+            <li><strong>Static Website Friendly:</strong> Works with Netlify, GitHub Pages, etc.</li>
+            <li><strong>No Database Required:</strong> Just a text file</li>
+        </ul>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Content File Structure</h2>
+        <p>Your content file is organized by page and section:</p>
+        <div class="code-block">
+HOME PAGE (index.html)
+========================================================================
+
+HERO SECTION:
+- Welcome text: "Welcome to"
+- Main title: "LITTLE PLAYROOM CAFÉ"
+- Subtitle: "Not Your Ordinary Playground"
+- Description: "A safe and fun environment..."
+- CTA button: "Explore Now"
+
+QUICK NAVIGATION:
+- About: "Learn about our cafe"
+- Menu: "View our food & drinks"
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>HTML Template Example</h2>
+        <p>Here's how your HTML should look:</p>
+        <div class="code-block">
+&lt;!-- Before (hardcoded) --&gt;
+&lt;h1&gt;LITTLE PLAYROOM CAFÉ&lt;/h1&gt;
+
+&lt;!-- After (dynamic) --&gt;
+&lt;h1 data-content="main_title"&gt;LITTLE PLAYROOM CAFÉ&lt;/h1&gt;
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>How to Use</h2>
+        
+        <div class="highlight">
+            <h4>1. Edit Content File</h4>
+            <p>Open <code>content/website-content.txt</code> and make your changes</p>
+        </div>
+        
+        <div class="highlight">
+            <h4>2. Save and Deploy</h4>
+            <p>Save the file and deploy to your website</p>
+        </div>
+        
+        <div class="highlight">
+            <h4>3. Content Updates Automatically</h4>
+            <p>When visitors load your page, the new content appears</p>
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Supported Content Types</h2>
+        <ul>
+            <li><strong>Text Content:</strong> Headings, paragraphs, buttons</li>
+            <li><strong>Navigation:</strong> Menu items, links</li>
+            <li><strong>Meta Data:</strong> Page descriptions, titles</li>
+            <li><strong>Contact Info:</strong> Addresses, phone numbers, hours</li>
+            <li><strong>Pricing:</strong> Package costs, add-on services</li>
+            <li><strong>Legal Text:</strong> Waiver content, rules</li>
+        </ul>
+    </div>
+    
+    <div class="demo-section">
+        <h2>File Structure</h2>
+        <div class="code-block">
+your-website/
+├── content/
+│   └── website-content.txt    ← Edit this file
+├── js/
+│   └── content-loader.js      ← This script (already created)
+├── pages/
+│   ├── about.html             ← Uses data-content attributes
+│   ├── menu.html              ← Uses data-content attributes
+│   └── ...
+└── index.html                 ← Uses data-content attributes
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Next Steps</h2>
+        <ol>
+            <li>Add <code>data-content</code> attributes to your HTML elements</li>
+            <li>Include <code>&lt;script src="js/content-loader.js"&gt;&lt;/script&gt;</code> in your HTML files</li>
+            <li>Test by editing <code>content/website-content.txt</code></li>
+            <li>Deploy and see your content update automatically!</li>
+        </ol>
+    </div>
+    
+    <div class="highlight">
+        <h3>🎉 You're All Set!</h3>
+        <p>Now you can edit all your website content in one place without touching HTML files. The system will automatically update your website whenever you change the content file.</p>
+    </div>
+</body>
+</html>

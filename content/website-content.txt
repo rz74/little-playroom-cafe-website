@@ -1,0 +1,453 @@
+LITTLE PLAYROOM CAFE - WEBSITE CONTENT
+==========================================
+
+This file contains all the modifiable text content from your website.
+Edit the content below and then update the corresponding HTML files.
+
+================================================================================
+HOME PAGE (index.html)
+================================================================================
+
+HERO SECTION:
+- Welcome text: "Welcome to"
+- Main title: "LITTLE PLAYROOM CAFÉ"
+- Subtitle: "Not Your Ordinary Playground"
+- Description: "A safe and fun environment where children can play, learn, and create memories"
+- CTA button: "Explore Now!"
+
+QUICK NAVIGATION:
+- About: "Learn about our cafe"
+- Menu: "View our food & drinks"
+- Birthday Party: "Book your celebration"
+- Contact: "Get in touch with us"
+
+TAGLINE SECTION:
+- Title: "Play. Learn. Party."
+- Description: "Three simple words that capture everything we do at Little Playroom Cafe. We believe every child deserves a space where they can be themselves, explore their creativity, and make lasting friendships."
+
+ABOUT PREVIEW:
+- Title: "About Our Cafe"
+- Description 1: "Little Playroom Cafe is more than just a play space – it's a community hub where families come together to create memories. Our unique concept combines safe play areas with a comfortable cafe environment, allowing parents to relax while their children explore and have fun."
+- Description 2: "We offer age-appropriate play zones, educational activities, and delicious food options for the whole family. Our mission is to provide a welcoming environment where children can develop social skills, creativity, and confidence through play."
+- CTA button: "Learn More"
+
+GALLERY PREVIEW:
+- Title: "Take a Look Around"
+- Playground overlay: "Playground"
+- Learning Zone overlay: "Learning Zone"
+- Cafe overlay: "Cafe"
+- CTA button: "View Full Gallery"
+
+================================================================================
+ABOUT PAGE (pages/about.html)
+================================================================================
+
+HERO SECTION:
+- Title: "About Little Playroom Cafe"
+- Subtitle: "Where Play Meets Community"
+
+ABOUT CONTENT:
+- Main title: "About Little Playroom Cafe"
+- Description 1: "Little Playroom Cafe is an indoor play space located in Madison, Wisconsin, specially designed for children ages 2 to 10. We've created a safe, clean, and imaginative environment where kids can freely explore, play, develop motor skills, and make new friends."
+- Description 2: "Our play area includes a variety of fun and engaging zones such as slides, climbing structures, building blocks, and pretend play corners—perfect for sparking creativity and encouraging social interaction."
+- Description 3: "We also care deeply about the experience of parents. That's why we offer a cozy cafe lounge with quality coffee, tea, and snacks, so you can relax, work, or connect with others while your child plays nearby."
+- Description 4: "Whether it's for everyday fun, quality family time, birthday parties, or group events, Little Playroom Cafe is your perfect destination for kids and parents alike."
+
+MISSION SECTION:
+- Title: "Our Mission"
+- Description: "We're committed to fostering a community where families feel welcome, children feel safe to explore, and everyone leaves with a smile. Our space is designed to encourage social interaction, creative play, and family bonding."
+
+WHAT MAKES US SPECIAL:
+- Title: "What Makes Us Special"
+- Description 1: "Unlike traditional playgrounds or cafes, we offer a hybrid experience that caters to the whole family. Our play areas are thoughtfully designed with age-appropriate equipment, ensuring safety while promoting development. Meanwhile, our cafe serves delicious, healthy options that both kids and adults will love."
+- Description 2: "We also specialize in birthday parties and special events, providing a stress-free celebration experience with our all-inclusive packages. From themed decorations to catering, we handle every detail so you can focus on making memories."
+
+VALUES:
+- Title: "Our Values"
+- Safety First: "All our equipment meets the highest safety standards"
+- Community Focus: "We're building a space where families connect"
+- Quality Service: "Every visit should exceed expectations"
+- Inclusive Environment: "Everyone is welcome at Little Playroom Cafe"
+
+CLOSING:
+- Final paragraph: "Whether you're looking for a fun afternoon out, planning a birthday celebration, or just need a place where your kids can burn off energy while you enjoy a coffee, Little Playroom Cafe is here for you. Come join our community and experience the difference!"
+
+================================================================================
+MENU PAGE (pages/menu.html)
+================================================================================
+
+HERO SECTION:
+- Title: "Our Menu"
+- Subtitle: "Delicious coffee for parents and healthy snacks for kids"
+
+COFFEE MENU:
+- Title: "Coffee Menu"
+- Drinks: Americano, Caffè Latte, Mocha Latte, Matcha Latte, Chai Latte, Espresso, Hot Chocolate, Hot Tea, Cappuccino, Frappuccino (caramel, vanilla, chocolate, white chocolate)
+
+KIDS SNACK MENU:
+- Title: "Kids Snack Menu"
+- Subtitle: "Healthy and delicious snacks perfect for our little guests"
+
+Fresh & Simple:
+- Apple Slices with Sunbutter Dip
+- Seedless Grapes & Strawberries Cup
+- Banana Slices with Yogurt Dip
+
+Veggie Snacks:
+- Carrot & Cucumber Sticks with Ranch
+- Baked Sweet Potato Fries (No Salt)
+- Roasted Seaweed Snack
+
+Crunchy & Light:
+- Mini Rice Cakes (Plain or Lightly Flavored)
+- Whole Grain Animal Crackers
+- Mini Graham Crackers
+
+Dairy / Protein:
+- String Cheese / Cheese Sticks
+- Greek Yogurt Cup (Low Sugar)
+- Mini Muffins (Banana or Blueberry, Low Sugar)
+- Air-Popped Popcorn (Lightly Salted, Nut-Free)
+
+MENU INFORMATION:
+- Title: "Menu Information"
+- All our kids snacks are nut-free and made with wholesome ingredients
+- Coffee drinks can be customized with alternative milks (almond, oat, soy)
+- Ask our staff about any dietary restrictions or allergies
+
+================================================================================
+PARTY PAGE (pages/party.html)
+================================================================================
+
+HERO SECTION:
+- Title: "Birthday Party"
+- Subtitle: "Make your child's special day unforgettable"
+
+PARTY CTA:
+- Title: "Your Party, Your Way - Let's Make It Special!"
+- Description: "Contact us to check availability and reserve your perfect party date!"
+- Button: "Contact Us"
+
+PARTY PACKAGE:
+- Title: "Party Package"
+- Description: "Host an unforgettable party at Little Playroom Cafe, where fun meets convenience! Our party packages offer a stress-free, memorable experience for kids and parents alike."
+
+PACKAGE PRICING:
+- Title: "Package Pricing"
+- Base Package: "$450 - For up to 10 kids and 20 adults"
+- Additional Guests: "$29 - Per additional child or adult"
+- Note: "Final guest count and food order is due the week of the party."
+- Important: "We are open to the public during parties!"
+
+PARTY FEATURES:
+- Admission & Grip Socks: "Admission and grip socks included for each child"
+- Dedicated Space: "Designated party space for 2 hours with 30 minutes setup and 15 minutes cleanup time"
+- Food & Beverages: "Cheese pizzas, organic juice boxes, iced water, and iced tea (One 16" pizza per 5 children)"
+- Colorful Tableware: "Colorful tableware for kids included"
+- Dedicated Host: "Dedicated party host for setup, assistance, and cleanup"
+- Personalization: "Bring your own cake, cookies, helium balloons, goodie bags, and themed tableware"
+
+AGE RANGE:
+- Title: "Perfect for Ages 2-10"
+- Description: "Our playground is suitable for children up to 12 years old or 58" tall. Our parties are designed to accommodate children of all ages, with age-appropriate activities and play areas."
+
+TIME SLOTS:
+- Title: "Party Times (Looking to book outside our posted hours? Call us!)"
+- Morning Party: "10:00 AM - 12:00 PM - Perfect for younger children"
+- Evening Party: "4:30 PM - 6:30 PM - Great for older children"
+
+IMPORTANT DETAILS:
+- Title: "Important Details"
+- Grip socks required for kids; regular socks for adults
+- $150 non-refundable deposit required at booking
+- Final guest count and food orders due the Monday before your event
+- Playground suitable for children up to 12 years old or 58" tall
+- No piñatas, balloon garlands, or wall hangings allowed
+- Additional party time available with advance notice and upon availability
+
+FOOD ADD-ONS:
+- Title: "Food Add-Ons"
+- Description: "Choose from a variety of pizzas, sandwiches, salads, and more, with final selections due one week before your event."
+
+BOOKING & PAYMENTS:
+- Title: "Booking & Payments"
+- 10% gratuity added to all party bill
+- Balance due on the day of your event
+- Your party host will call the week of the party to confirm final details
+
+ADDITIONAL DECORATION SERVICES:
+- Title: "Additional Decoration Services"
+- Description: "Custom decor is available upon request with a minimum of 4 weeks' notice."
+- Photo Booth Setup: "$75 - Professional photo booth with props and backdrop"
+- Music & Sound System: "$50 - Background music and sound system setup"
+- Cake Table Setup: "$40 - Elegant cake table with decorations"
+- Gift Table Setup: "$30 - Decorated gift table with signage"
+
+DECORATION BOOKING:
+- Title: "Book Your Decoration Package"
+- Description: "Ready to make your party magical? Fill out the form below to book your decoration package along with your party."
+- What's Included:
+  * Professional setup and takedown
+  * All decorations and props
+  * 2-hour setup time
+  * Consultation before the event
+
+================================================================================
+CONTACT PAGE (pages/contact.html)
+================================================================================
+
+HERO SECTION:
+- Title: "Contact Us"
+- Subtitle: "We'd love to hear from you"
+
+CONTACT FORM:
+- Title: "Send us a Message"
+- Subject options:
+  * General Inquiry
+  * Birthday Party Booking
+  * Menu Questions
+  * Hours & Pricing
+  * Feedback
+
+CONTACT INFO:
+- Title: "Get in Touch"
+- Address: "7956 Tree Lane, Madison, WI 53717"
+- Email: "playroommadison@gmail.com"
+- Hours:
+  * Mon–Thu: 9:30 AM - 8:00 PM
+  * Fri–Sat: 9:30 AM - 8:30 PM
+  * Sun: 9:30 AM - 8:00 PM
+
+SOCIAL MEDIA:
+- Title: "Follow Us"
+- Facebook: "https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr"
+- Instagram: "https://www.instagram.com/littleplayroom_cafe/profilecard/?igsh=MXhhZnFldG4zZ2du"
+- TikTok: "https://www.tiktok.com/@littleplayroomcafe?_t=ZP-8ydQzYplgul&_r=1"
+
+MAP SECTION:
+- Title: "Find Us"
+
+================================================================================
+RULES PAGE (pages/rules.html)
+================================================================================
+
+HERO SECTION:
+- Title: "Rules & Guidelines"
+- Subtitle: "Keeping Everyone Safe & Happy"
+- Description: "Please review our rules to ensure a safe and enjoyable experience for all guests"
+
+SAFETY RULES:
+- Age Restrictions: "Playground suitable for children up to 12 years old or 58" tall"
+- Footwear Requirements: "Grip socks required for kids; regular socks for adults. No shoes in play areas."
+- Supervision: "Children must be supervised by a responsible adult at all times"
+- No Running: "Please walk, don't run in the cafe and play areas"
+
+FOOD & BEVERAGE:
+- Food Areas: "Food and drinks are only allowed in designated dining areas"
+- Outside Food: "No outside catering allowed. You may bring your own cake and snacks for parties"
+- Beverages: "All beverages must have lids to prevent spills in play areas"
+- Clean Up: "Please clean up after yourself and dispose of trash properly"
+
+PARTY RULES:
+- Booking Requirements: "Parties must be booked at least 2 weeks in advance"
+- Deposit: "$150 non-refundable deposit required at booking"
+- Decorations: "No piñatas, balloon garlands, or wall hangings allowed"
+- Time Limits: "Parties are limited to 2 hours plus 30 minutes setup and 15 minutes cleanup"
+
+GENERAL CONDUCT:
+- Respect Others: "Be kind and respectful to other guests and staff"
+- Noise Level: "Please keep noise levels reasonable for everyone's comfort"
+- Phone Usage: "Please take phone calls outside the play areas"
+- Photography: "Photos are welcome but please respect other guests' privacy"
+
+HEALTH & SAFETY:
+- Illness Policy: "Please do not visit if you or your child are feeling unwell, have a fever, or show symptoms of illness."
+- Hand Hygiene: "Please wash hands before and after play, and before eating. Hand sanitizer is available throughout the facility."
+- Diaper Changes: "Diaper changes must be done in designated changing areas only."
+- First Aid: "First aid kit is available at the front desk. Please report any accidents to staff immediately."
+
+WAIVER REMINDER:
+- Title: "Waiver Required"
+- Description: "All guests must complete a waiver before entering the play areas. This helps us ensure everyone's safety and provides important emergency contact information."
+- Button: "Complete Waiver"
+
+CONTACT FOR QUESTIONS:
+- Title: "Questions About Our Rules?"
+- Description: "If you have any questions about our rules or need clarification, please don't hesitate to contact us."
+- Button: "Contact Us"
+
+================================================================================
+PARTNERSHIP PAGE (pages/partnership.html)
+================================================================================
+
+HERO SECTION:
+- Title: "Partnership Opportunities"
+- Subtitle: "Expand the Little Playroom Cafe Experience"
+- Description: "Join us in bringing safe, fun, and educational play spaces to more communities"
+
+PARTNERSHIP CONTENT:
+- Title: "Looking for Partnership with Little Playroom Cafe"
+- Description: "We are a family-friendly indoor playground and cafe based in Madison, WI, offering a safe, fun, and cozy space for children and parents. We are now seeking partners to expand this concept to new locations."
+
+WE CAN PROVIDE:
+- Our brand & concept
+- Layout design & supplier connections
+- Staff training & operational guidance
+
+WE WELCOME PARTNERS WHO:
+- Are passionate about family & children's activities
+- Have investment capacity or suitable venue resources
+- Want to grow together with a proven business model
+
+PARTNERSHIP FORM:
+- Title: "Interested in Partnership?"
+- Description: "Fill out the form below and we'll get back to you within 24 hours."
+- Investment Capacity options:
+  * Under $100,000
+  * $100,000 - $250,000
+  * $250,000 - $500,000
+  * Over $500,000
+
+CONTACT INFO:
+- Email: "playroommadison@gmail.com"
+- Address: "7956 Tree Lane, Madison, WI 53717"
+
+================================================================================
+WAIVER PAGE (pages/waiver.html)
+================================================================================
+
+HERO SECTION:
+- Title: "Required Waiver"
+- Description: "All participants must complete this waiver before entering the play area"
+
+WAIVER CONTENT:
+- Title: "Participant Waiver & Release Form"
+- Company: "LITTLE PLAYROOM CAFE LLC"
+- Address: "7956 Tree Lane, Madison WI 53717"
+- Document Type: "LIABILITY WAIVER AND HOLD HARMLESS AGREEMENT"
+
+LEGAL DISCLAIMER:
+- Activities: "The Participant will participate in various activities offered by Little Playroom Cafe (the "Activities"), including but not limited to, the following: use of the toys and equipment in the Little Playroom Cafe."
+- Assumption of Risk: "I understand that the Activities entail the risk of severe bodily injury to the Participant. Injuries that could result will vary, but may include (a) minor injuries such as scratches, bruises and sprains; (b) major injuries such as eye injury or loss of sight, joint or back injuries and concussions; and (c) catastrophic injuries, including paralysis and even death. Notwithstanding these risks and other hazards that may be foreseeable but not specifically identified herein, I, for myself and the Participant and our respective heirs, personal representatives and assigns, understand, acknowledge, and expressly and voluntarily assume all risks and full responsibility for any injury arising out of or related to the Activities."
+- Release and Discharge: "I, for myself and the Participant and our respective heirs, personal representatives and assigns, do hereby release, discharge and agree not to sue Little Playroom Cafe and its managers, members, employees and/or other agents, for any injury to or death of the Participant arising, directly or indirectly, from participation in the Activities. This release, discharge and covenant not to sue shall relate to any and all claims or legal rights now existing or arising in the future, including claims and legal rights arising out of any negligence of Little Playroom Cafe and/or its managers, members, employees and/or other agents and any other breach of a legal duty arising out of common law, statute, contract or otherwise."
+- Indemnification: "I agree to indemnify Little Playroom Cafe and hold Little Playroom Cafe harmless from, without limitation, any and all claims, actions, suits, procedures, costs, expenses, damages and liabilities, including attorney's fees and costs, incurred due to claims brought by any third party as a result of or arising out of the Participant's involvement in the Activities and to reimburse Little Playroom Cafe for any such costs, expenses and fees as they are incurred."
+- Security Cameras: "I understand that security cameras installed within and around the facility are for the safety of all participants and may be referenced should any incident or injury occur."
+- COVID-19 Warning: "An inherited risk of exposure to Covid-19 exists in any public place where people are present. COVID-19 is an extremely contagious disease that can lead to severe illness and death. According to the Center of Disease Control and Prevention, senior citizens and guests with underlying medical conditions are at higher risk for contracting the disease. Participation includes possible exposure to an illness from infectious disease including but not limited to Covid-19. By visiting Little Playroom Cafe, you assume all risks related to Covid-19 and other infectious disease."
+- Personal Property: "I acknowledge that all personal items, left, or forgotten at Little Playroom Cafe facility, is left at my own risk and the company is not responsible for any stolen, damaged, or forgotten items."
+- As Is Condition: "I acknowledge that the Little Playroom Cafe makes no representation as to the condition of the play structure or any toys, and/or equipment used within the facility. I acknowledge that I, and any participant(s) in my care, will use the facility and any equipment in its "As Is Condition" and assume all known and unknown risks associated to the Participant(s) in any activities at the facility, including but not limited to: falls, slips, impact with toys, equipment or other children."
+- Parent or Legal Guardian Certification: "I hereby certify that I am the parent or legal guardian of the Participant whose name appears below, and I have authority to waive rights on behalf of the minor Participant. I have read and I understand all of the provisions of this document and the risks of the Activities. I understand that the Activities could cause injury and even death. I acknowledge that I have read and understand the terms of this document and I am freely and voluntarily signing this document."
+- Severability: "This document is intended to be as broad and inclusive as is permitted by the laws of the State of Wisconsin and if any provision (or a part of any provision) contained herein is deemed to be invalid, the balance of the provisions shall continue in full legal force and effect, notwithstanding such invalidity."
+
+FINAL NOTICE:
+- "I HAVE READ THIS AGREEMENT THOROUGHLY. I UNDERSTAND THAT BY SIGNING THIS AGREEMENT, I AM WAIVING CERTAIN LEGAL RIGHTS, WHICH I, THE PARTICIPANT(S), AND OUR HEIRS, ASSIGNEES, EXECUTORS, ADMINISTRATORS, AND PERSONAL REPRESENTATIVES, HAVE AGAINST THE RELEASEES, INCLUDING THE RIGHT TO SUE. I HAVE BEEN AFFORDED THE OPPORTUNITY TO REFUSE THE PARTICIPANT(S) PARTICIPATION IN THE ACTIVITIES, BUT I HAVE FREELY AND VOLUNTARILY ELECTED TO SIGN THIS AGREEMENT."
+
+WAIVER FORM FIELDS:
+- Participant Name
+- Age
+- Parent/Guardian Name
+- Phone Number
+- Email Address
+- Emergency Contact (Name & Phone)
+
+AGREEMENT CHECKBOXES:
+- I have read and understood the waiver terms above
+- I agree to follow all facility rules and regulations
+- I will supervise children under my care at all times
+- I confirm the participant is in good health and not experiencing illness symptoms
+- I grant permission for photos/videos to be used for promotional purposes
+
+DIGITAL SIGNATURE:
+- Digital Signature (Type your full name)
+- Date
+
+WAIVER NOTE:
+- "This waiver is valid for one day from the date of submission. You may be asked to update your information periodically."
+- "If you have any questions about this waiver, please contact us before your visit."
+
+================================================================================
+GALLERY PAGE (pages/gallery.html)
+================================================================================
+
+HERO SECTION:
+- Title: "Photo Gallery"
+- Subtitle: "Take a Look Around Our Space"
+- Description: "Explore our play areas, party spaces, and cafe through these photos"
+
+GALLERY ITEMS:
+- Main Playground: "Our spacious indoor playground with climbing structures"
+- Active Play Zone: "Children enjoying our interactive play equipment"
+- Toddler Area: "Safe play space designed for our youngest guests"
+- Party Room: "Dedicated space for birthday celebrations"
+- Party Setup: "Beautifully decorated party spaces"
+- Birthday Celebrations: "Memorable moments from our parties"
+- Party Area: "Spacious party zones for celebrations"
+- Cafe Lounge: "Comfortable seating area for parents"
+- Food & Beverages: "Delicious treats and drinks for everyone"
+- Dining Area: "Family-friendly dining space"
+- Menu Display: "Our delicious food and beverage options"
+- Special Events: "Holiday celebrations and themed events"
+- Group Activities: "Organized activities and play sessions"
+- Community Events: "Bringing families together"
+- Princess Theme: "Magical princess-themed decorations"
+- Superhero Theme: "Action-packed superhero decorations"
+- Jungle Safari: "Wild jungle safari themed decorations"
+- Custom Themes: "Personalized decoration themes"
+
+GALLERY CTA:
+- Title: "Ready to Visit?"
+- Description: "See our space in person and experience the magic of Little Playroom Cafe"
+- Buttons: "Contact Us", "Book a Party"
+
+================================================================================
+GENERAL WEBSITE CONTENT
+================================================================================
+
+NAVIGATION MENU:
+- Home
+- Waiver
+- About
+- Menu
+- Party
+- Gallery
+- Rules
+- Partnership
+- Contact
+
+COMPANY INFORMATION:
+- Company Name: "LITTLE PLAYROOM CAFÉ"
+- Address: "7956 Tree Lane, Madison, WI 53717"
+- Email: "playroommadison@gmail.com"
+- Hours:
+  * Mon–Thu: 9:30 AM - 8:00 PM
+  * Fri–Sat: 9:30 AM - 8:30 PM
+  * Sun: 9:30 AM - 8:00 PM
+
+SOCIAL MEDIA LINKS:
+- Facebook: "https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr"
+- Instagram: "https://www.instagram.com/littleplayroom_cafe/profilecard/?igsh=MXhhZnFldG4zZ2du"
+- TikTok: "https://www.tiktok.com/@littleplayroomcafe?_t=ZP-8ydQzYplgul&_r=1"
+
+META DESCRIPTIONS:
+- Home: "A modern kids cafe and play space in Madison, WI where children can play, learn, and party in a safe and fun environment."
+- About: "Learn about Little Playroom Cafe - a unique play space and cafe in Madison, WI designed for families."
+- Menu: "View our delicious menu featuring coffee, snacks, and kid-friendly options at Little Playroom Cafe in Madison, WI."
+- Party: "Book your child's birthday party at Little Playroom Cafe in Madison, WI. Stress-free celebrations with all-inclusive packages and decoration services."
+- Contact: "Get in touch with Little Playroom Cafe in Madison, WI. Contact us for questions, bookings, or general inquiries."
+- Waiver: "Sign the required waiver for Little Playroom Cafe. All participants must complete this form before entering the play area."
+
+================================================================================
+NOTES FOR EDITING
+================================================================================
+
+1. When editing content, maintain the same tone and style
+2. Keep descriptions concise but informative
+3. Ensure all contact information is accurate and up-to-date
+4. Maintain consistency across all pages
+5. Test all links after making changes
+6. Update meta descriptions when changing page content
+7. Keep pricing information current
+8. Ensure all legal text in the waiver remains accurate
+
+================================================================================
+END OF CONTENT FILE
+================================================================================
