@@ -66,20 +66,19 @@ class FooterLoader {
                 <div class="container">
                     <div class="footer-content">
                         <div class="footer-section">
-                            <div class="footer-logo">
-                                <img src="images/logo.svg" alt="Little Playroom Cafe Logo" class="footer-logo-img">
-                                <h3>Little Playroom Cafe</h3>
-                            </div>
+                            <h3>Little Playroom Cafe</h3>
                             <p>Not Your Ordinary Playground</p>
                             <div class="social-links">
-                                <a href="https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
-                                <a href="https://www.instagram.com/littleplayroom_cafe/profilecard/?igsh=MXhhZnFldG4zZ2du"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.tiktok.com/@littleplayroomcafe?_t=ZP-8ydQzYplgul&_r=1"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.facebook.com/share/176CcYP9hd/?mibextid=wwXIfr" class="social-link facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/littleplayroom_cafe/profilecard/?igsh=MXhhZnFldG4zZ2du" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@littleplayroomcafe?_t=ZP-8ydQzYplgul&_r=1" class="social-link tiktok"><i class="fab fa-tiktok"></i></a>
                             </div>
                         </div>
                         <div class="footer-section">
                             <h4>Quick Links</h4>
                             <ul>
+                                <li><a href="../index.html">Home</a></li>
+                                <li><a href="waiver.html">Waiver</a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="menu.html">Menu</a></li>
                                 <li><a href="party.html">Birthday Party</a></li>
@@ -102,7 +101,7 @@ class FooterLoader {
                         <p>&copy; 2024 Little Playroom Cafe. All rights reserved.</p>
                     </div>
                 </div>
-            </footer>
+            </footer> 
         `;
 
         this.replaceFooterPlaceholder(fallbackFooter);
