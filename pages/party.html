@@ -226,53 +226,22 @@
                 </div>
 
                 <div class="booking-form">
-                    <form id="decorBookingForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="decorName">Full Name *</label>
-                            <input type="text" id="decorName" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="decorEmail">Email Address *</label>
-                            <input type="email" id="decorEmail" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="decorPhone">Phone Number *</label>
-                            <input type="tel" id="decorPhone" name="phone" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="decorDate">Party Date *</label>
-                            <input type="date" id="decorDate" name="date" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="decorTime">Party Time *</label>
-                            <select id="decorTime" name="time" required>
-                                <option value="">Select time slot</option>
-                                <option value="10am-12pm">10 AM - 12 PM</option>
-                                <option value="4:30pm-6:30pm">4:30 PM - 6:30 PM</option>
-                            </select>
-                        </div>
-                        
-                        <!-- <div class="form-section">
-                            <label for="decorAddons">Additional Services</label>
-                            <div class="checkbox-group form-section">
-                                <div style="display: flex;flex-direction: row; align-items: center;"><input type="checkbox" name="addons" value="photobooth" style="width: 10%;"> <label>Photo Booth Setup ($75)</label></div>
-                                <div style="display: flex;flex-direction: row; align-items: center;"><input type="checkbox" name="addons" value="music" style="width: 10%;"> <label>Music & Sound System ($50)</label></div>
-                                <div style="display: flex;flex-direction: row; align-items: center;"><input type="checkbox" name="addons" value="cake" style="width: 10%;"> <label>Cake Table Setup ($40)</label></div>
-                                <div style="display: flex;flex-direction: row; align-items: center;"><input type="checkbox" name="addons" value="gift" style="width: 10%;"> <label>Gift Table Setup ($30)</label></div>
-                            </div>
-                        </div> -->
-                        
-                        <div class="form-group">
-                            <label for="decorNotes">Special Requests</label>
-                            <textarea id="decorNotes" name="notes" rows="4" placeholder="Any special requests or customizations..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Book Decoration Package</button>
-                    </form>
+                    <!-- Google Form Embed - Party Booking -->
+                    <div class="google-form-container">
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSeGu0rWuV7PYVh-PmQ-9I3s-BQfVvN85ACoAZIVcrFdE5mBPQ/viewform?embedded=true" 
+                            width="100%" 
+                            height="800" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0">
+                            Loading…
+                        </iframe>
+                    </div>
+                    
+                    <div class="form-note">
+                        <p><strong>Note:</strong> After submitting this form, you will receive an automatic email confirmation with your responses.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -283,58 +252,6 @@
     <script src="../js/image-aliases.js"></script>
     <script src="../js/footer-loader.js"></script>
     <script src="../js/script.js"></script>
-    <script src="../js/email-config.js"></script>
-    <script src="../js/email-service.js"></script>
-    <script>
-        // Party form submission handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const decorBookingForm = document.getElementById('decorBookingForm');
-            
-            if (decorBookingForm) {
-                decorBookingForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    try {
-                        // Collect form data
-                        const formData = new FormData(this);
-                        
-                        // Get selected add-ons
-                        const selectedAddons = [];
-                        const addonCheckboxes = this.querySelectorAll('input[name="addons"]:checked');
-                        addonCheckboxes.forEach(checkbox => {
-                            selectedAddons.push(checkbox.value);
-                        });
-                        
-                        // Create form data object
-                        const formDataObj = {
-                            name: formData.get('name'),
-                            email: formData.get('email'),
-                            phone: formData.get('phone'),
-                            partyDate: formData.get('date'),
-                            partyTime: formData.get('time'),
-                            addOnServices: selectedAddons.length > 0 ? selectedAddons.join(', ') : 'None selected',
-                            notes: formData.get('notes'),
-                            decorationPackage: 'Standard Decoration Package'
-                        };
-                        
-                        // Send email notification
-                        const emailService = new EmailService();
-                        await emailService.sendFormNotification('party', formDataObj);
-                        
-                        // Show success message
-                        alert('Thank you! Your decoration package has been booked. We will contact you within 24 hours to confirm details.');
-                        
-                        // Reset form
-                        this.reset();
-                        
-                    } catch (error) {
-                        console.error('Failed to submit party form:', error);
-                        alert('Failed to submit form. Please try again.');
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html> 
 
