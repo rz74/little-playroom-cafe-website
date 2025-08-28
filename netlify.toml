@@ -24,7 +24,24 @@
   for = "*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+# Same as above, explicit style (either is fine; pick one)
+# [context."branch:staging"]
 
+# ---------- Dev (branch: dev) ----------
+[context.dev]
+  command = "npm run build:dev"
+  [context.dev.environment]
+    NODE_ENV = "development"
+    VITE_API_BASE = "https://dev-api.yourdomain.com"
+
+# ---------- Deploy Previews (PRs) ----------
+[context.deploy-preview]
+  # This runs for PRs regardless of branch and gets a unique preview URL
+  command = "npm run build:preview"
+  [context.deploy-preview.environment]
+    NODE_ENV = "preview"
+    VITE_API_BASE = "https://preview-api.yourdomain.com"
+    
 [build.environment]
   NODE_VERSION = "18"
 
