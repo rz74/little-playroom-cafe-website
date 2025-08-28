@@ -28,7 +28,14 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Main redirect for single-page app
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+
+# URL aliases for cleaner URLs
+[[redirects]]
+  from = "/waiver"
+  to = "/pages/waiver.html"
+  status = 301 
