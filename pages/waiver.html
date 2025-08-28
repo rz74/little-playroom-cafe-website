@@ -111,115 +111,95 @@
                     </div>
                 </div>
                 
-                <!-- Waiver Form -->
-                <form class="waiver-form">
-                    <div class="form-section">
-                        <h3>Participant Information</h3>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="participant-name">Participant Name *</label>
-                                <input type="text" id="participant-name" name="participant-name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="participant-age">Age *</label>
-                                <input type="number" id="participant-age" name="participant-age" min="0" max="18" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="parent-guardian">Parent/Guardian Name *</label>
-                            <input type="text" id="parent-guardian" name="parent-guardian" required>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="emergency-contact">Emergency Contact (Name & Phone)</label>
-                            <input type="text" id="emergency-contact" name="emergency-contact">
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h3>Agreement</h3>
-                        
-                        <div class="checkbox-group">
-                            <div style="display: flex;flex-direction: row; align-items: center; gap: 10px;">
-                                <input type="checkbox" name="agree-waiver" required>
-                                <span class="checkmark"></span>
-                                <label>I have read and understood the waiver terms above *</label>
-                            </div>
-                        </div>
-                        
-                        <div class="checkbox-group">
-                            <div style="display: flex;flex-direction: row; align-items: center; gap: 10px;">
-                                <input type="checkbox" name="agree-rules" required>
-                                <span class="checkmark"></span>
-                                <label>I agree to follow all facility rules and regulations *</label>
-                            </div>
-                        </div>
-                        
-                        <div class="checkbox-group">
-                            <div style="display: flex;flex-direction: row; align-items: center; gap: 10px;">
-                                <input type="checkbox" name="agree-supervision" required>
-                                <span class="checkmark"></span>
-                                <label>I will supervise children under my care at all times *</label>
-                            </div>
-                        </div>
-                        
-                        <div class="checkbox-group">
-                            <div style="display: flex;flex-direction: row; align-items: center; gap: 10px;">
-                                <input type="checkbox" name="agree-health" required>
-                                <span class="checkmark"></span>
-                                <label>I confirm the participant is in good health and not experiencing illness symptoms *</label>
-                            </div>
-                        </div>
-                        
-                        <div class="checkbox-group">
-                            <div style="display: flex;flex-direction: row; align-items: center; gap: 10px;">
-                                <input type="checkbox" name="agree-photos">
-                                <span class="checkmark"></span>
-                                <label>I grant permission for photos/videos to be used for promotional purposes</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h3>Digital Signature</h3>
-                        <p>By typing your name below, you acknowledge that this constitutes a legal signature.</p>
-                        
-                        <div class="form-group">
-                            <label for="digital-signature">Digital Signature (Type your full name) *</label>
-                            <input type="text" id="digital-signature" name="digital-signature" placeholder="Type your full name here" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="signature-date">Date *</label>
-                            <input type="date" id="signature-date" name="signature-date" required>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-waiver-btn">Submit Waiver</button>
-                </form>
-                
-                <div class="waiver-note">
-                    <p><strong>Note:</strong> This waiver is valid for one day from the date of submission. You may be asked to update your information periodically.</p>
-                    <p>If you have any questions about this waiver, please contact us before your visit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waiver - Little Playroom Cafe</title>
+  <meta name="description" content="Sign the required waiver for Little Playroom Cafe. All participants must complete this form before entering the play area.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="images/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    .form-wrap { max-width: 980px; margin: 2rem auto; padding: 1rem; }
+    .form-iframe { width: 100%; min-height: 1200px; border: 0; }
+    @media (max-width: 640px) { .form-iframe { min-height: 1500px; } }
+    .waiver-hero .container { text-align: center; }
+  </style>
+</head>
+<body data-page="waiver">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="Little Playroom Cafe Logo" class="logo-img">
+        <h2>LITTLE PLAYROOM CAFÉ</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="waiver.html" class="active">Waiver</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="party.html">Party</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Waiver Hero -->
+  <section class="waiver-hero">
+    <div class="container">
+      <h1>Required Waiver</h1>
+      <p>All participants must complete this waiver before entering the play area.</p>
+    </div>
+  </section>
+
+  <!-- Waiver Content (Google Form embed) -->
+  <section class="waiver-content">
+    <div class="container">
+      <div class="waiver-form-container form-wrap">
+        <h2>Participant Waiver & Release Form</h2>
+        <p>
+          Please complete the form below. A copy of your responses will be emailed to you automatically.
+          By submitting, you consent to your information being processed and stored by Google Forms/Google Sheets.
+        </p>
+
+        <!-- Embed your Google Form -->
+        <iframe
+          class="form-iframe"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfjCSBoXCQJ_gziK3Qqb0Upu8LZEWYJRJDaGBaAh0J7uLPC3g/viewform?embedded=true"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          allowfullscreen>
+          Loading…
+        </iframe>
+
+        <!-- Fallback link -->
+        <p style="margin-top:1rem">
+          If the form doesn’t load, <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjCSBoXCQJ_gziK3Qqb0Upu8LZEWYJRJDaGBaAh0J7uLPC3g/viewform" target="_blank" rel="noopener">open it in a new tab</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer + site scripts you already use -->
+  <script src="image-aliases.js"></script>
+  <script src="footer-loader.js"></script>
+  <script src="script.js"></script>
+  <!-- Removed: email-config.js, email-service.js, and the inline submit handler -->
+</body>
+</html>
+
 
     <!-- Footer -->
     
