@@ -1465,13 +1465,22 @@ body {
 
     .waiver-form-container {
         max-width: 100%;
-        margin: 0 auto;
-        padding: 0 0.5rem;
+        margin: 0 0;
+        padding: 0 0rem;
     }
     .container {
         max-width: 100%;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 0px;
+    }
+    .waiver-content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0rem;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        padding: 0rem;
+        border-radius: 15px;
     }
 }
 
