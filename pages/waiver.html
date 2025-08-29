@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Important for full-screen on mobile with notches -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Waiver - Little Playroom Cafe</title>
   <meta name="description" content="Sign the required waiver for Little Playroom Cafe. All participants must complete this form before entering the play area.">
@@ -11,11 +10,10 @@
   <link rel="apple-touch-icon" href="../images/logo.svg">
   <link rel="stylesheet" href="../styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="manifest" href="../manifest.json">
 </head>
 <body data-page="waiver">
-  <!-- Navigation Bar (unchanged) -->
+  <!-- Top banner / navbar (unchanged) -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
@@ -33,13 +31,11 @@
         <li><a href="partnership.html">Partnership</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="hamburger">
-        <span></span><span></span><span></span>
-      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
   </nav>
 
-  <!-- Full-bleed waiver form (your CSS should set height: calc(100dvh - var(--nav-h))) -->
+  <!-- Full-screen form area (CSS should use var(--nav-offset) to avoid overlap) -->
   <main class="waiver-fullpage">
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSfjCSBoXCQJ_gziK3Qqb0Upu8LZEWYJRJDaGBaAh0J7uLPC3g/viewform?embedded=true"
@@ -47,25 +43,24 @@
       frameborder="0"
       marginheight="0"
       marginwidth="0"
-      allowfullscreen>
-      Loading…
-    </iframe>
+      allowfullscreen>Loading…</iframe>
   </main>
 
-  <!-- Set --nav-h dynamically so the iframe can fill the remaining screen -->
+  <!-- Measure banner height → --nav-offset (px). Use it in CSS:
+       .waiver-fullpage { margin-top: var(--nav-offset); height: calc(100dvh - var(--nav-offset)); } -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const nav = document.querySelector('.navbar');
-      const setNavH = () => {
-        const h = (nav?.offsetHeight || 96) + 20; // a little breathing room
-        document.documentElement.style.setProperty('--nav-h', h + 'px');
+      const setOffset = () => {
+        const bottom = Math.ceil((nav?.getBoundingClientRect().bottom || 96)) + 12; // 12px gap
+        document.documentElement.style.setProperty('--nav-offset', bottom + 'px');
       };
-      setNavH();
-      window.addEventListener('resize', setNavH);
+      setOffset();
+      window.addEventListener('resize', setOffset);
+      window.addEventListener('orientationchange', setOffset);
     });
   </script>
 
-  <!-- Existing site JS (menu toggle, etc.) -->
   <script src="../js/script.js"></script>
 </body>
 </html>

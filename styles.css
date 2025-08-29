@@ -4423,3 +4423,14 @@ body[data-page="waiver"] .navbar {
   padding-right: max(16px, env(safe-area-inset-right));
   z-index: 1000;
 }
+/* Waiver page: place form below banner using the measured offset */
+body[data-page="waiver"] .waiver-fullpage {
+  margin-top: var(--nav-offset, 120px);
+  height: calc(100dvh - var(--nav-offset, 120px));
+  overflow: hidden;
+}
+@supports not (height: 100dvh) {
+  body[data-page="waiver"] .waiver-fullpage {
+    height: calc(100vh - var(--nav-offset, 120px));
+  }
+}
