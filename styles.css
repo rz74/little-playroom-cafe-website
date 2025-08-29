@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 80%;
+    max-width: 150%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1231,6 +1231,11 @@ body {
     background: white;
 }
 
+.waiver-form-container {
+    max-width: 8000px;
+    margin: 0 auto;
+}
+
 .waiver-form-container h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -1461,27 +1466,6 @@ body {
     .waiver-logo {
         height: 180px;
     }
-    
-
-    .waiver-form-container {
-        max-width: 100%;
-        margin: 0 0;
-        padding: 0 0rem;
-    }
-    .container {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0 0px;
-    }
-    .waiver-content {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 0rem;
-        align-items: center;
-        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        padding: 0rem;
-        border-radius: 15px;
-    }
 }
 
 /* Final Notice Styles */
@@ -1500,52 +1484,6 @@ body {
     line-height: 1.6;
     margin: 0;
     font-weight: 500;
-}
-
-/* Google Form Embed Styling */
-.google-form-container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    background: var(--bg-primary);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px var(--shadow-dark);
-}
-
-.google-form-container iframe {
-    width: 100%;
-    height: 800px;
-    border: none;
-    border-radius: 12px;
-}
-
-.form-note {
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px;
-    background: var(--bg-accent);
-    border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
-}
-
-.form-note p {
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-
-/* Mobile Responsiveness for Google Forms */
-@media (max-width: 768px) {
-    .google-form-container iframe {
-        height: 600px;
-    }
-    
-    .form-note {
-        margin: 15px;
-        padding: 12px;
-    }
 }
 
 /* Footer */
@@ -1918,7 +1856,9 @@ body {
     }
     
     .container {
-        padding: 0 15px;
+        padding: 0 
+        
+        5px;
     }
 
     .hero h1 {
@@ -4404,3 +4344,125 @@ body[data-page="gallery"] .lightbox-next {
     transition: none !important;
     animation: none !important;
 } 
+
+
+
+
+
+
+/* RZ 08292025 */
+
+
+
+
+/* --- Waiver page: make the Google Form full-bleed, edge-to-edge --- */
+body[data-page="waiver"] .waiver-content {
+  /* Remove the default vertical padding that makes the form look inset */
+  padding: 0;
+}
+
+/* Full-bleed wrapper: force container to span the entire viewport width */
+body[data-page="waiver"] .google-form-container {
+  width: 100vw;                     /* span full viewport width */
+  margin-left: 50%;                 /* center the 100vw block */
+  transform: translateX(-50%);      /* ...by pulling it back half */
+  max-width: none;                  /* no clamping */
+  border-radius: 0;                 /* clean edge-to-edge look */
+  background: transparent;          /* let page background show */
+  box-shadow: none;                 /* remove inset feel */
+  overflow: hidden;                 /* safety */
+}
+
+/* The iframe itself should fill that full-bleed wrapper */
+body[data-page="waiver"] .google-form-container iframe {
+  display: block;       /* remove default inline gap */
+  width: 100%;
+  height: 100vh;        /* good “full screen” feel; tweak if you prefer */
+  max-height: 1200px;   /* optional: cap on huge desktops */
+  border: 0;
+  border-radius: 0;
+}
+
+/* Optional: on very small screens, don’t force full viewport height */
+@media (max-width: 480px) {
+  body[data-page="waiver"] .google-form-container iframe {
+    height: 85vh;
+  }
+}
+
+/* If any generic .container is used on the waiver page (e.g., hero),
+   make sure it doesn't clamp width there either */
+body[data-page="waiver"] .container {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Reset page chrome to avoid unexpected margins */
+html, body { height: 100%; margin: 0; }
+
+/* Full-bleed, full-height form below the fixed navbar */
+:root { --nav-h: 96px; } /* default; JS updates this */
+body[data-page="waiver"] .waiver-fullpage {
+  position: relative;
+  width: 100%;
+  height: calc(100dvh - var(--nav-h));  /* dynamic viewport height on iOS/Android */
+  overflow: hidden;
+  margin: 0; padding: 0;
+}
+
+/* Fallback for older browsers without 100dvh */
+@supports not (height: 100dvh) {
+  body[data-page="waiver"] .waiver-fullpage { height: calc(100vh - var(--nav-h)); }
+}
+
+/* Make the iframe truly fill that space */
+body[data-page="waiver"] .waiver-fullpage iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Don’t let generic containers clamp width on this page */
+body[data-page="waiver"] .container { max-width: none; padding-left: 0; padding-right: 0; }
+
+/* Notch/safe-area padding so the banner doesn’t collide with the edges */
+body[data-page="waiver"] .navbar {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  z-index: 1000;
+}
+/* Waiver page: place form below banner using the measured offset */
+body[data-page="waiver"] .waiver-fullpage {
+  margin-top: var(--nav-offset, 120px);
+  height: calc(100dvh - var(--nav-offset, 120px));
+  overflow: hidden;
+}
+@supports not (height: 100dvh) {
+  body[data-page="waiver"] .waiver-fullpage {
+    height: calc(100vh - var(--nav-offset, 120px));
+  }
+}
+/* Let the PAGE scroll; don’t lock the form wrapper to 100vh */
+body[data-page="waiver"] .waiver-fullpage {
+  margin-top: var(--nav-offset, 120px);
+  height: auto;              /* important: not 100vh */
+  overflow: visible;         /* let it expand naturally */
+}
+
+/* Make the iframe tall so it never needs its own scrollbar */
+body[data-page="waiver"] .waiver-fullpage iframe {
+  display: block;
+  width: 100%;
+  height: 8000px;            /* picked for the form */
+  border: 0;
+}
+
+/* Optional: tune by breakpoint
+@media (max-width: 480px) {
+  body[data-page="waiver"] .waiver-fullpage iframe { height: 8000px; }
+}
+@media (min-width: 1024px) {
+  body[data-page="waiver"] .waiver-fullpage iframe { height: 5000px; }
+} */
