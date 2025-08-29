@@ -1,60 +1,71 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waiver - Little Playroom Cafe</title>
-    <meta name="description" content="Sign the required waiver for Little Playroom Cafe. All participants must complete this form before entering the play area.">
-    <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../images/logo.svg">
-    <link rel="stylesheet" href="../styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="manifest" href="../manifest.json">
+  <meta charset="UTF-8" />
+  <!-- Important for full-screen on mobile with notches -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Waiver - Little Playroom Cafe</title>
+  <meta name="description" content="Sign the required waiver for Little Playroom Cafe. All participants must complete this form before entering the play area.">
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../images/logo.svg">
+  <link rel="stylesheet" href="../styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body data-page="waiver">
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-                            
-            <div class="nav-logo">
-                <img src="../images/logo.svg" alt="Little Playroom Cafe Logo" class="logo-img">
-                <h2>LITTLE PLAYROOM CAFÉ</h2>
-            </div>
-              <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="waiver.html" class="active">Waiver</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="party.html">Party</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="rules.html">Rules</a></li>
-                <li><a href="partnership.html">Partnership</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-<!-- spacer so the fixed navbar doesn't overlap -->
-<div class="nav-spacer"></div>
+  <!-- Navigation Bar (unchanged) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="../images/logo.svg" alt="Little Playroom Cafe Logo" class="logo-img">
+        <h2>LITTLE PLAYROOM CAFÉ</h2>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="waiver.html" class="active">Waiver</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="party.html">Party</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
 
-<!-- Full-bleed waiver form -->
-<main class="waiver-fullpage">
-  <iframe
-    src="https://docs.google.com/forms/d/e/1FAIpQLSfjCSBoXCQJ_gziK3Qqb0Upu8LZEWYJRJDaGBaAh0J7uLPC3g/viewform?embedded=true"  
-    title="Waiver Form"
-    frameborder="0"
-    marginheight="0"
-    marginwidth="0"
-    allowfullscreen>
-    Loading…
-  </iframe>
-</main>
+  <!-- Full-bleed waiver form (your CSS should set height: calc(100dvh - var(--nav-h))) -->
+  <main class="waiver-fullpage">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfjCSBoXCQJ_gziK3Qqb0Upu8LZEWYJRJDaGBaAh0J7uLPC3g/viewform?embedded=true"
+      title="Waiver Form"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      allowfullscreen>
+      Loading…
+    </iframe>
+  </main>
 
-<!-- Keep only what you need; script.js handles the hamburger/menu -->
-<script src="../js/script.js"></script>
+  <!-- Set --nav-h dynamically so the iframe can fill the remaining screen -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navbar');
+      const setNavH = () => {
+        const h = (nav?.offsetHeight || 96) + 20; // a little breathing room
+        document.documentElement.style.setProperty('--nav-h', h + 'px');
+      };
+      setNavH();
+      window.addEventListener('resize', setNavH);
+    });
+  </script>
+
+  <!-- Existing site JS (menu toggle, etc.) -->
+  <script src="../js/script.js"></script>
+</body>
+</html>
