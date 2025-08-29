@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 80%
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1232,7 +1232,7 @@ body {
 }
 
 .waiver-form-container {
-    max-width: 800px;
+    max-width: 8000px;
     margin: 0 auto;
 }
 
