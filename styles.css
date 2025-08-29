@@ -4459,10 +4459,10 @@ body[data-page="waiver"] .waiver-fullpage iframe {
   border: 0;
 }
 
-/* Optional: tune by breakpoint */
+/* Optional: tune by breakpoint
 @media (max-width: 480px) {
   body[data-page="waiver"] .waiver-fullpage iframe { height: 8000px; }
 }
 @media (min-width: 1024px) {
   body[data-page="waiver"] .waiver-fullpage iframe { height: 5000px; }
-}
+} */
