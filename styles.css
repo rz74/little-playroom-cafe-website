@@ -4455,7 +4455,7 @@ body[data-page="waiver"] .waiver-fullpage {
 body[data-page="waiver"] .waiver-fullpage iframe {
   display: block;
   width: 100%;
-  height: 10000px;            /* picked for the form */
+  height: 8000px;            /* picked for the form */
   border: 0;
 }
 
