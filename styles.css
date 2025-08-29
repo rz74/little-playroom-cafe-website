@@ -4344,3 +4344,46 @@ body[data-page="gallery"] .lightbox-next {
     transition: none !important;
     animation: none !important;
 } 
+
+/* --- Waiver page: make the Google Form full-bleed, edge-to-edge --- */
+body[data-page="waiver"] .waiver-content {
+  /* Remove the default vertical padding that makes the form look inset */
+  padding: 0;
+}
+
+/* Full-bleed wrapper: force container to span the entire viewport width */
+body[data-page="waiver"] .google-form-container {
+  width: 100vw;                     /* span full viewport width */
+  margin-left: 50%;                 /* center the 100vw block */
+  transform: translateX(-50%);      /* ...by pulling it back half */
+  max-width: none;                  /* no clamping */
+  border-radius: 0;                 /* clean edge-to-edge look */
+  background: transparent;          /* let page background show */
+  box-shadow: none;                 /* remove inset feel */
+  overflow: hidden;                 /* safety */
+}
+
+/* The iframe itself should fill that full-bleed wrapper */
+body[data-page="waiver"] .google-form-container iframe {
+  display: block;       /* remove default inline gap */
+  width: 100%;
+  height: 100vh;        /* good “full screen” feel; tweak if you prefer */
+  max-height: 1200px;   /* optional: cap on huge desktops */
+  border: 0;
+  border-radius: 0;
+}
+
+/* Optional: on very small screens, don’t force full viewport height */
+@media (max-width: 480px) {
+  body[data-page="waiver"] .google-form-container iframe {
+    height: 85vh;
+  }
+}
+
+/* If any generic .container is used on the waiver page (e.g., hero),
+   make sure it doesn't clamp width there either */
+body[data-page="waiver"] .container {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
